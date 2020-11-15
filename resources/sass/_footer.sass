@@ -1,0 +1,32 @@
+.footer
+	text-align: center
+	padding-top: 0.75rem
+
+	&__link
+		font-size: 0.5625rem
+		opacity: 0.2
+		color: $text
+		font-weight: $weight-bold
+		transition: opacity $duration-short
+		display: inline-block
+
+
+	&__icon
+		height: 0.875rem
+		margin-left: 0.5rem
+		vertical-align: middle
+		margin-top: -3px
+
+	&__separator
+		display: inline-block
+		width: 1px
+		background-color: $text
+		opacity: 0.2
+		margin-left: 0.5rem
+		height: 0.875rem
+		vertical-align: middle
+
+.no-touchevents
+	.footer__link:hover
+		opacity: 1
+		color: $text

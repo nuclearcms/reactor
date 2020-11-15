@@ -1,0 +1,63 @@
+.contents-navigation
+	height: calc(100vh - 7.75em)
+	box-shadow: $shadow-lg
+	border-radius: 1.5rem
+	border: 0.25rem solid $grey-lightest
+	background-color: $white
+	position: relative
+	padding: 1rem
+	@media screen and (max-width: $desktop)
+		height: calc(100vh - 3.5rem)
+
+	&__flap
+		position: absolute
+		right: calc(100% + 0.25rem)
+		box-shadow: $shadow
+		top: 0
+		font-size: $size-8
+		background-color: $primary
+		color: $white
+		font-weight: $weight-bold
+		line-height: 2rem
+		padding: 0 1.5rem
+		transform-origin: 100% 100% 0
+		border-top-left-radius: $radius-small
+		border-top-right-radius: $radius-small
+		transform: rotate(-90deg)
+		@media screen and (max-width: $desktop)
+			transform: none
+			right: 1rem
+			top: -2.25rem
+	
+	&__new
+		position: absolute
+		right: -1.25rem
+		display: inline-block
+		width: 2.5rem
+		height: 2.5rem
+		border-radius: 50%
+		background-color: $primary
+		color: $white
+		padding: 0.5rem
+		top: 4.25rem
+		transition: $duration-short
+		z-index: 2
+
+	&__locales
+		height: 2rem
+		position: relative
+		&::before
+			+pseudo-block
+			height: 2px
+			width: calc(100% + 2rem)
+			position: absolute
+			top: calc(50% - 1px)
+			left: -1rem
+			background-color: $grey-lightest
+			z-index: 0
+
+.no-touchevents
+	.contents-navigation
+		&__new:hover
+			color: $white
+			background-color: $primary-dark

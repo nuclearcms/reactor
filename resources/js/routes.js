@@ -26,6 +26,7 @@ import {ContentTypesIndex, ContentTypesCreate, ContentTypesEdit, ContentTypesFie
 // Maintenance
 import ManageEnvironment from './views/ManageEnvironment'
 import ManageLogs from './views/ManageLogs'
+import MaintainReactor from './views/MaintainReactor'
 
 // Errors
 import {NotFound, Unauthorized, Internal} from 'umomega-foundation'
@@ -90,6 +91,7 @@ export default {
         // Maintenance
         {path: '/environment', component: ManageEnvironment, name: 'environment'},
         {path: '/logs', component: ManageLogs, name: 'logs'},
+        {path: '/maintenance', component: MaintainReactor, name: 'maintenance'},
 
         // Profile
         {path: '/profile', component: ProfileEdit, name: 'profile.edit'},

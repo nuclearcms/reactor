@@ -56,4 +56,34 @@ class MaintenanceController extends Controller
 		];
 	}
 
+	/**
+	 * Runs an artisan command
+	 *
+	 * @param string $command
+	 * @return json
+	 */
+	public function runCommand($command)
+	{
+		if(!in_array($command, ['down', 'optimize', 'route_cache', 'config_cache', 'view_cache', 'package_discover', 'route_clear', 'cache_clear', 'config_clear', 'view_clear', 'optimize_clear', 'clear-compiled', 'activitylog_clean', 'permission_cache-reset', 'key_generate'])) {
+			return [
+				'success' => false,
+				'message' => __('reactor::general.maintenance_command_not_found')
+			];
+		}
+
+		if($command == 'key_generate') {
+			\Artisan::call(str_replace('_', ':', $command));
+			\Artisan::call('config:cache');
+		} elseif($command == 'activitylog_clean') {
+			\Artisan::call('activitylog:clean', ['--days' => 0]);
+		} else {
+			\Artisan::call(str_replace('_', ':', $command));
+		}
+
+		return [
+			'success' => true,
+			'message' => __('reactor::general.maintenance_command_run_successfully')
+		];
+	}
+
 }

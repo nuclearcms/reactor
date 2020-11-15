@@ -1,0 +1,25 @@
+$maintenance-collapse: 32rem
+
+.maintenance-command
+	display: flex
+	align-content: center
+	align-items: center
+	@media screen and (max-width: $maintenance-collapse)
+		display: block
+
+	.button
+		flex-basis: 15rem
+		flex-shrink: 0
+		flex-grow: 0
+		@media screen and (max-width: $maintenance-collapse)
+			width: 100%
+
+	p
+		padding-left: 1.5rem
+		@media screen and (max-width: $maintenance-collapse)
+			padding: 0.25rem 0 0.5rem
+			padding-left: 0
+
+@media screen and (max-width: $maintenance-collapse)
+	.maintenance-section
+		text-align: center

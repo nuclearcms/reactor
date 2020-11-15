@@ -54,8 +54,12 @@
             <router-link v-if="$can('read_contenttypes')" :to="{ name: 'contenttypes.index' }" class="dropdown-item">
                 <i class="icon fas fa-shapes has-color-grey-darker"></i> {{ trans.get('hierarchy::contenttypes.manage') }}
             </router-link>
+            <hr v-if="$can('read_contenttypes') && ($can('maintain_reactor') || $can('rw_environment') || $can('rw_logs'))" class="dropdown-divider">
+            <router-link v-if="$can('maintain_reactor')" :to="{ name: 'maintenance' }" class="dropdown-item">
+                <i class="icon fas fa-wrench has-color-grey-darker"></i> {{ trans.get('reactor::general.maintenance') }}
+            </router-link>
             <router-link v-if="$can('rw_environment')" :to="{ name: 'environment' }" class="dropdown-item">
-                <i class="icon fas fa-cogs has-color-grey-darker"></i> {{ trans.get('reactor::general.manage_environment') }}
+                <i class="icon fas fa-cogs has-color-grey-darker"></i> {{ trans.get('reactor::general.environment_variables') }}
             </router-link>
             <router-link v-if="$can('rw_logs')" :to="{ name: 'logs' }" class="dropdown-item">
                 <i class="icon fas fa-exclamation-triangle has-color-grey-darker"></i> {{ trans.get('reactor::general.manage_logs') }}

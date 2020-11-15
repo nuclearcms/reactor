@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import {View, Tabs, assess_error} from 'umomega-foundation'
+import {View, assess_error} from 'umomega-foundation'
 import {PrismEditor} from 'vue-prism-editor'
 import 'vue-prism-editor/dist/prismeditor.min.css'
 import {highlight, languages} from 'prismjs/components/prism-core'
@@ -28,7 +28,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 export default {
 	mixins: [ View ],
-	components: { Tabs, PrismEditor },
+	components: { PrismEditor },
 	data() { return {
 		titleLabel: 'reactor::general.manage_logs',
 		code: ''

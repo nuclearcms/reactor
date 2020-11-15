@@ -15173,3 +15173,39 @@ body::before {
 .search-tool {
   max-width: 14rem;
 }
+
+.maintenance-command {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 32rem) {
+  .maintenance-command {
+    display: block;
+  }
+}
+.maintenance-command .button {
+  flex-basis: 15rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+@media screen and (max-width: 32rem) {
+  .maintenance-command .button {
+    width: 100%;
+  }
+}
+.maintenance-command p {
+  padding-left: 1.5rem;
+}
+@media screen and (max-width: 32rem) {
+  .maintenance-command p {
+    padding: 0.25rem 0 0.5rem;
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 32rem) {
+  .maintenance-section {
+    text-align: center;
+  }
+}

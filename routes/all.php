@@ -31,28 +31,28 @@ Route::group([
     Route::name('api.')->group(function() {
         Route::middleware('auth:api')->group(function() {
             Route::namespace('Nuclear\Reactor\Http\Controllers')->group(function() {
-                require_once 'api/dashboard.php';
-                require_once 'api/maintenance.php';
+                require 'api/dashboard.php';
+                require 'api/maintenance.php';
             });
 
             Route::namespace('Umomega\Auth\Http\Controllers')->group(function() {
-                require_once 'api/profile.php';
-                require_once 'api/permissions.php';
-                require_once 'api/roles.php';
-                require_once 'api/users.php';
+                require 'api/profile.php';
+                require 'api/permissions.php';
+                require 'api/roles.php';
+                require 'api/users.php';
             });
 
             Route::namespace('Umomega\Media\Http\Controllers')->group(function() {
-                require_once 'api/media.php';
+                require 'api/media.php';
             });
 
             Route::namespace('Umomega\Tags\Http\Controllers')->group(function() {
-                require_once 'api/tags.php';
+                require 'api/tags.php';
             });
 
             Route::namespace('Nuclear\Hierarchy\Http\Controllers')->group(function() {
-                require_once 'api/contenttypes.php';
-                require_once 'api/contentfields.php';
+                require 'api/contenttypes.php';
+                require 'api/contentfields.php';
             });
         });
     });

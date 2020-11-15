@@ -48,11 +48,14 @@
         </Dropdown>
 
 
-        <Dropdown v-if="$can('maintain_reactor') || $can('read_contenttypes')">
+        <Dropdown v-if="$can('maintain_reactor') || $can('read_contenttypes') || $can('rw_environment')">
             <template v-slot:dropdown-button><i class="icon fas fa-tools"></i></template>
             <template v-slot:dropdown-label>{{ trans.get('reactor::general.construction_maintenance') }}</template>
             <router-link v-if="$can('read_contenttypes')" :to="{ name: 'contenttypes.index' }" class="dropdown-item">
                 <i class="icon fas fa-shapes has-color-grey-darker"></i> {{ trans.get('hierarchy::contenttypes.manage') }}
+            </router-link>
+            <router-link v-if="$can('rw_environment')" :to="{ name: 'environment' }" class="dropdown-item">
+                <i class="icon fas fa-cogs has-color-grey-darker"></i> {{ trans.get('reactor::general.manage_environment') }}
             </router-link>
         </Dropdown>
 

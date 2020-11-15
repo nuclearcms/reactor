@@ -23,6 +23,9 @@ import ProfileChronicle from './views/profile/ProfileChronicle'
 // Hierarchy
 import {ContentTypesIndex, ContentTypesCreate, ContentTypesEdit, ContentTypesFields, ContentFieldsCreate, ContentFieldsEdit} from 'nuclear-hierarchy-ui'
 
+// Environment
+import ManageEnvironment from './views/ManageEnvironment'
+
 // Errors
 import {NotFound, Unauthorized, Internal} from 'umomega-foundation'
 
@@ -82,6 +85,9 @@ export default {
         // Content Fields
         {path: '/contenttypes/:id/fields/create', component: ContentFieldsCreate, name: 'contentfields.create'},
         {path: '/contenttypes/:parent/fields/:id', component: ContentFieldsEdit, name: 'contentfields.edit'},
+
+        // Environment
+        {path: '/environment', component: ManageEnvironment, name: 'environment'},
 
         // Profile
         {path: '/profile', component: ProfileEdit, name: 'profile.edit'},

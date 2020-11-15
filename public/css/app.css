@@ -14349,6 +14349,21 @@ button.dropdown-item.is-active {
   color: #00249C !important;
 }
 
+.code-editor {
+  background-color: #303031;
+  color: #FFFFFF;
+  padding: 1.5rem 0.5rem;
+  border-radius: 8px;
+  font-family: Menlo, Courier, monospace;
+  line-height: 1.75;
+}
+.code-editor .prism-editor__textarea:focus {
+  outline: none;
+}
+.code-editor .prism-editor__line-number {
+  line-height: 1.75;
+}
+
 .paper {
   border-radius: 8px;
   box-shadow: 0 1em 2em -0.25em rgba(48, 48, 49, 0.2), 0 0px 0 1px rgba(48, 48, 49, 0.02);

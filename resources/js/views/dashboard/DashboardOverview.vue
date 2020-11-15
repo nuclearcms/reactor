@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {View, Tabs} from 'umomega-foundation';
+import {View, Tabs} from 'umomega-foundation'
 
 export default {
 	mixins: [ View ],

@@ -30,7 +30,10 @@ Route::group([
 
     Route::name('api.')->group(function() {
         Route::middleware('auth:api')->group(function() {
-            require_once 'api/dashboard.php';
+            Route::namespace('Nuclear\Reactor\Http\Controllers')->group(function() {
+                require_once 'api/dashboard.php';
+                require_once 'api/maintenance.php';
+            });
 
             Route::namespace('Umomega\Auth\Http\Controllers')->group(function() {
                 require_once 'api/profile.php';

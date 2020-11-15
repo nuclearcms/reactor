@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import {View, Tabs, Shower, RequiresPermissions} from 'umomega-foundation';
-import ActivityFeed from '../../components/ActivityFeed';
+import {View, Tabs, Shower, RequiresPermissions} from 'umomega-foundation'
+import ActivityFeed from '../../components/ActivityFeed'
 
 export default {
 	mixins: [ View, Shower, RequiresPermissions ],

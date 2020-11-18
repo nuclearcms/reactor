@@ -53,6 +53,7 @@ Route::group([
             Route::namespace('Nuclear\Hierarchy\Http\Controllers')->group(function() {
                 require 'api/contenttypes.php';
                 require 'api/contentfields.php';
+                require 'api/contents.php';
             });
         });
     });

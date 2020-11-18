@@ -23,6 +23,14 @@ import ProfileChronicle from './views/profile/ProfileChronicle'
 // Hierarchy
 import {ContentTypesIndex, ContentTypesCreate, ContentTypesEdit, ContentTypesFields, ContentFieldsCreate, ContentFieldsEdit} from 'nuclear-hierarchy-ui'
 
+// Temporary
+import ContentsIndex from './views/contents/ContentsIndex'
+import ContentsCreate from './views/contents/ContentsCreate'
+import ContentsEdit from './views/contents/ContentsEdit'
+import ContentsTranslate from './views/contents/ContentsTranslate'
+import ContentsSettings from './views/contents/ContentsSettings'
+import ContentsStatistics from './views/contents/ContentsStatistics'
+
 // Maintenance
 import ManageEnvironment from './views/ManageEnvironment'
 import ManageLogs from './views/ManageLogs'
@@ -45,6 +53,14 @@ export default {
         // Dashboard
         {path: '/', component: DashboardOverview, name: 'dashboard.overview'},
         {path: '/activity', component: DashboardChronicle, name: 'dashboard.chronicle'},
+
+        // Contents
+        {path: '/contents', component: ContentsIndex, name: 'contents.index'},
+        {path: '/contents/create/:parent?', component: ContentsCreate, name: 'contents.create'},
+        {path: '/contents/:id/edit/:locale?', component: ContentsEdit, name: 'contents.edit'},
+        {path: '/contents/:id/translate', component: ContentsTranslate, name: 'contents.translate'},
+        {path: '/contents/:id/settings', component: ContentsSettings, name: 'contents.settings'},
+        {path: '/contents/:id/statistics', component: ContentsStatistics, name: 'contents.statistics'},
         
         // Media
         {path: '/media', component: MediaIndex, name: 'media.index'},

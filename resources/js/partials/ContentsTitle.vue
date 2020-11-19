@@ -5,7 +5,7 @@
 			<div>
 				<span v-for="(ancestor, index) in resource.ancestors" :key="index">
 					&nbsp;<i class="has-color-grey-light icon fas fa-long-arrow-alt-right" v-if="index != 0"></i>
-					<router-link :to="{ name: 'contents.edit', params: {id: ancestor.id} }" v-text="ancestor.title[$root.appLocale]"></router-link>
+					<router-link :to="{ name: (ancestor.hides_children || ancestor.content_type.hides_children ? 'contents.children' : 'contents.edit'), params: {id: ancestor.id} }" v-text="ancestor.title[$root.appLocale]"></router-link>
 				</span>
 			</div>
 		</div>

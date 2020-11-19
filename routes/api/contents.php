@@ -2,6 +2,10 @@
 
 Route::middleware('permission:superadmin|read_contents')->group(function() {
 
+	Route::get('contents', 'ContentsController@index')->name('contents.index');
+	
+	Route::get('contents/search', 'ContentsController@search')->name('contents.search');
+
 	Route::get('contents/precreate/{parent?}', 'ContentsController@precreate')->name('contents.precreate');
 
 	Route::get('contents/{content}', 'ContentsController@show')->name('contents.show');

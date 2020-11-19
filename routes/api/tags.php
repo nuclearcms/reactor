@@ -7,6 +7,9 @@ Route::middleware('permission:superadmin|read_tags')->group(function() {
 	Route::get('tags/search', 'TagsController@search')->name('tags.search');
 	
 	Route::get('tags/{tag}', 'TagsController@show')->name('tags.show');
+
+	// Like this because Tags package will not have any Hierarchy specific methods
+	Route::get('tags/{tag}/contents', '\Nuclear\Hierarchy\Http\Controllers\ContentsController@tagged')->name('tags.contents');
 });
 
 Route::middleware('permission:superadmin|write_tags')->group(function() {

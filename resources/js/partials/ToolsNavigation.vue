@@ -1,6 +1,26 @@
 <template>
 	<nav class="tools-navigation">
 
+        <Dropdown v-if="$can('read_contents')">
+            <template v-slot:dropdown-button>
+                <i class="icon fas fa-code-branch"></i>
+            </template>
+            <template v-slot:dropdown-label>{{ trans.get('hierarchy::contents.multiple') }}</template>
+            <router-link :to="{ name: 'contents.index' }" class="dropdown-item">
+                <i class="icon fas fa-align-justify has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.manage') }}
+            </router-link>
+            <hr class="dropdown-divider">
+            <router-link :to="{ name: 'contents.index', query: { f: 'unpublished'} }" class="dropdown-item">
+                <i class="icon fas fa-times has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.c_unpublished') }}
+            </router-link>
+            <router-link :to="{ name: 'contents.index', query: { f: 'locked'} }" class="dropdown-item">
+                <i class="icon fas fa-lock has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.c_locked') }}
+            </router-link>
+            <router-link :to="{ name: 'contents.index', query: { f: 'invisible'} }" class="dropdown-item">
+                <i class="icon fas fa-eye-slash has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.c_invisible') }}
+            </router-link>
+        </Dropdown>
+
         <Dropdown v-if="$can('read_media')">
             <template v-slot:dropdown-button><i class="icon fas fa-folder"></i></template>
             <template v-slot:dropdown-label>{{ trans.get('media::media.multiple') }}</template>

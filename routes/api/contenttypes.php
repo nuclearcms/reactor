@@ -10,6 +10,8 @@ Route::middleware('permission:superadmin|read_contenttypes')->group(function() {
 
 	Route::get('contenttypes/{content_type}/fields', 'ContentTypesController@fields')->name('contenttypes.fields');
 
+	Route::get('contenttypes/{content_type}/contents', 'ContentTypesController@contents')->name('contenttypes.contents');
+
 });
 
 Route::middleware('permission:superadmin|write_contenttypes')->group(function() {

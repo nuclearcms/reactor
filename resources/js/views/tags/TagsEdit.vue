@@ -6,7 +6,8 @@
 		</div>
 
 		<tabs class="is-marginless" :tabs="[
-			{route: 'tags.edit', label: 'tags::tags.single', active: true}
+			{route: 'tags.edit', label: 'tags::tags.single', active: true},
+			{route: 'tags.contents', label: 'hierarchy::contents.multiple', active: false}
 		]"></tabs>
 
 		<div class="paper">

@@ -8,6 +8,7 @@ import {MediaIndex, MediaUpload, MediaEmbed, MediaEdit, MediaImage} from 'umomeg
 // Tags
 import {TagsIndex, TagsCreate, TagsTranslate} from 'umomega-tags'
 import TagsEdit from './views/tags/TagsEdit'
+import TagsContents from './views/tags/TagsContents'
 
 // Permissions
 import {PermissionsIndex, PermissionsCreate, PermissionsEdit, PermissionsUsers} from 'umomega-auth'
@@ -30,6 +31,7 @@ import ContentsEdit from './views/contents/ContentsEdit'
 import ContentsTranslate from './views/contents/ContentsTranslate'
 import ContentsSettings from './views/contents/ContentsSettings'
 import ContentsStatistics from './views/contents/ContentsStatistics'
+import ContentTypesContents from './views/contenttypes/ContentTypesContents'
 
 // Maintenance
 import ManageEnvironment from './views/ManageEnvironment'
@@ -74,6 +76,7 @@ export default {
         {path: '/tags/create', component: TagsCreate, name: 'tags.create'},
         {path: '/tags/:id/edit/:locale?', component: TagsEdit, name: 'tags.edit'},
         {path: '/tags/:id/translate', component: TagsTranslate, name: 'tags.translate'},
+        {path: '/tags/:id/contents', component: TagsContents, name: 'tags.contents'},
 
         // Users
         {path: '/users', component: UsersIndex, name: 'users.index'},
@@ -99,6 +102,7 @@ export default {
         {path: '/contenttypes/create', component: ContentTypesCreate, name: 'contenttypes.create'},
         {path: '/contenttypes/:id/edit', component: ContentTypesEdit, name: 'contenttypes.edit'},
         {path: '/contenttypes/:id/fields', component: ContentTypesFields, name: 'contenttypes.fields'},
+        {path: '/contenttypes/:id/contents', component: ContentTypesContents, name: 'contenttypes.contents'},
 
         // Content Fields
         {path: '/contenttypes/:id/fields/create', component: ContentFieldsCreate, name: 'contentfields.create'},

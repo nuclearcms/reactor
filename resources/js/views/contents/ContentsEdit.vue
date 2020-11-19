@@ -21,10 +21,18 @@
 						</div>
 					</div>
 					<div class="paper__side">
-						<h3 class="is-size-4 has-color-grey mb-sm" v-text="trans.get('hierarchy::contents.seo_and_search')"></h3>
+
+						<div class="mb-xl" v-if="contentTaggable">
+							<h3 class="is-size-5 has-color-grey mb-sm" v-text="trans.get('tags::tags.multiple')"></h3>
+
+							<ContentsTags :errors="form.errors" :readonly="!$can('write_contents') || resource.is_locked == 1" :value="form['tags']"/>
+						</div>
+
+						<h3 class="is-size-5 has-color-grey mb-sm" v-text="trans.get('hierarchy::contents.seo_and_search')"></h3>
 						<div v-for="locale in resource.locales">
 							<FormBody :class="locale == editingLocale ? '' : 'is-sr-only'" :schema="schemaSecondary" v-model="form" :readonly="!$can('write_contents') || resource.is_locked == 1" :translatable="true" :translatableFields="secondaryTranslatableFields" :locale="locale"/>
 						</div>
+
 					</div>
 				</div>
 
@@ -54,11 +62,12 @@
 import {Updater, Tabs, Form, RequiresPermissions, Translatable} from 'umomega-foundation'
 import ContentsTitle from '../../partials/ContentsTitle'
 import ContentsHeader from '../../partials/ContentsHeader'
+import ContentsTags from '../../partials/ContentsTags'
 import ContentsEditHelper from '../../mixins/ContentsEditHelper'
 
 export default {
 	mixins: [ Updater, RequiresPermissions, Translatable, ContentsEditHelper ],
-	components: { Tabs, ContentsHeader, ContentsTitle },
+	components: { Tabs, ContentsHeader, ContentsTitle, ContentsTags },
 	data() { return {
 		titleLabel: 'hierarchy::contents.edit',
 		hasOptions: true,
@@ -68,7 +77,7 @@ export default {
 		guardedBy: 'read_contents',
 		translatableFields: ['title'],
 		secondaryTranslatableFields: ['meta_title', 'meta_description', 'meta_author', 'keywords'],
-		form: new Form({content_type_id: '', title: '', meta_title: '', meta_description: '', meta_author: '', keywords: '', status: 100}),
+		form: new Form({content_type_id: '', title: '', meta_title: '', meta_description: '', meta_author: '', keywords: '', status: 100, tags: []}),
 		schema: [
 			{
 				type: 'TextField',
@@ -123,6 +132,9 @@ export default {
 				self.schema.push(field)
 			})
 		})
+	},
+	destroyed() {
+		Event.$off('resource-loaded')
 	}
 }
 </script>

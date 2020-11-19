@@ -22,6 +22,9 @@ export default {
 		},
 		contentStatus() {
 			return this.resource.id != undefined ? this.resource.status : 100
+		},
+		contentTaggable() {
+			return this.resource.id != undefined ? this.resource.contentType.is_taggable : false
 		}
 	},
 	mounted() {

@@ -4,8 +4,8 @@
 			<router-link v-if="canHaveMoreTranslations" class="dropdown-item" :to="{ name: 'contents.translate', params: {id: this.contentId} }">
 				<i class="icon fas fa-language has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.translate') }}
 			</router-link>
-			<a href="#" v-if="canDeleteCurrentTranslation" class="dropdown-item" @click.prevent="openDeleteModal({ bulk: false, route: 'contents/' + contentId + '/translate/' + editingLocale})">
-				<i class="icon fas fa-minus has-color-grey-darker"></i> {{ trans.get('foundation::general.delete_translation') }}
+			<a href="#" v-if="canDeleteCurrentTranslation" class="dropdown-item has-color-danger" @click.prevent="openDeleteModal({ bulk: false, route: 'contents/' + contentId + '/translate/' + editingLocale})">
+				<i class="icon fas fa-minus"></i> {{ trans.get('foundation::general.delete_translation') }}
 			</a>
 			<a href="#" class="dropdown-item has-color-danger" @click.prevent="openDeleteModal({ bulk: false, route: 'contents/' + contentId})">
 				<i class="icon fas fa-trash"></i> {{ trans.get('hierarchy::contents.delete') }}

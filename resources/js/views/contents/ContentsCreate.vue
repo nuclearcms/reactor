@@ -53,29 +53,7 @@ export default {
 			self.isLoaded = false
 		}, 2)
 
-		var route = 'contents/precreate'
-		if(self.$route.params.parent) route += '/' + self.$route.params.parent
-
-		axios.get(api_url_with_token(route))
-			.then(function(response) {
-				self.isLoaded = true
-
-				if(response.data.action == 'populate')
-				{
-					if(self.$route.params.parent) {
-						self.breadcrumbs.push({to: { name: 'contents.edit', params: {id: self.$route.params.parent }}, text: response.data.parent.title[self.$root.appLocale] })
-					}
-
-					self.schema[1].options.choices = response.data.types.map(function(t) {
-						return { value: t.id, label: t.name }
-					})
-				} else if(response.data.action == 'redirect')
-				{
-					self.notifier.danger(response.data.message)
-					router.push({ name: 'contents.edit', params: { id: self.$route.params.parent } })
-				}
-			})
-			.catch(function(error) { assess_error(error) })
+		self.loadPrecreate()
 	},
 	methods: {
 		requestStoreDynamic() {
@@ -83,7 +61,41 @@ export default {
 			if(this.$route.params.parent) route += '/' + this.$route.params.parent
 
 			this.requestStore(route, 'contents.edit')
+		},
+		loadPrecreate() {
+			const self = this
+
+			var route = 'contents/precreate'
+			if(self.$route.params.parent) route += '/' + self.$route.params.parent
+
+			
+			axios.get(api_url_with_token(route))
+				.then(function(response) {
+					self.isLoaded = true
+					self.breadcrumbs.length = 1
+
+					if(response.data.action == 'populate')
+					{
+						if(self.$route.params.parent) {
+							self.breadcrumbs.push({to: { name: 'contents.edit', params: {id: self.$route.params.parent }}, text: response.data.parent.title[self.$root.appLocale] })
+						}
+
+						self.schema[1].options.choices = response.data.types.map(function(t) {
+							return { value: t.id, label: t.name }
+						})
+					} else if(response.data.action == 'redirect')
+					{
+						self.notifier.danger(response.data.message)
+						router.push({ name: 'contents.edit', params: { id: self.$route.params.parent } })
+					}
+				})
+				.catch(function(error) { assess_error(error) })
 		}
-	}
+	},
+	watch: {
+		$route(to, from) {
+			if(from.params.parent != to.params.parent) this.loadPrecreate()
+		}
+	},
 };
 </script>

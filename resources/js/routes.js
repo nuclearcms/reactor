@@ -31,6 +31,7 @@ import ContentsEdit from './views/contents/ContentsEdit'
 import ContentsTranslate from './views/contents/ContentsTranslate'
 import ContentsSettings from './views/contents/ContentsSettings'
 import ContentsStatistics from './views/contents/ContentsStatistics'
+import ContentsTransform from './views/contents/ContentsTransform'
 import ContentTypesContents from './views/contenttypes/ContentTypesContents'
 
 // Maintenance
@@ -62,6 +63,7 @@ export default {
         {path: '/contents/:id/edit/:locale?', component: ContentsEdit, name: 'contents.edit'},
         {path: '/contents/:id/translate', component: ContentsTranslate, name: 'contents.translate'},
         {path: '/contents/:id/settings', component: ContentsSettings, name: 'contents.settings'},
+        {path: '/contents/:id/transform', component: ContentsTransform, name: 'contents.transform'},
         {path: '/contents/:id/statistics', component: ContentsStatistics, name: 'contents.statistics'},
         
         // Media

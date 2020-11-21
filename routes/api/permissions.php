@@ -1,5 +1,11 @@
 <?php
 
+Route::middleware('permission:superadmin|access_reactor')->group(function() {
+
+	Route::get('permissions/user', 'PermissionsController@user')->name('permissions.user');
+
+});
+
 Route::middleware('permission:superadmin|rw_permissions')->group(function() {
 
 	Route::get('permissions', 'PermissionsController@index')->name('permissions.index');

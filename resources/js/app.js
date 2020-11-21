@@ -42,6 +42,7 @@ store.nuclear_version = window.nuclear_version;
 store.allowed_extensions = window.allowed_extensions;
 store.allowed_mimetypes = window.allowed_mimetypes;
 store.allowed_size = window.allowed_size;
+store.home_content = window.home_content;
 
 // Page Titles
 import VuePageTitle from 'vue-page-title'

@@ -11,8 +11,8 @@
 
 		<div class="app__bar">
 
-			<div class="app__sidebar app__control">
-				<button class="is-pulled-left is-hidden-desktop navigation-button mr-xl" @click.prevent="openContentsNavigation()">
+			<div :class="$can('read_contents') ? 'app__sidebar app__control' : 'app__sidebar app__control app__control--left'">
+				<button v-if="$can('read_contents')" class="is-pulled-left is-hidden-desktop navigation-button mr-xl" @click.prevent="openContentsNavigation()">
 					<i class="icon fas fa-stream"></i>
 				</button>
 
@@ -33,17 +33,17 @@
 
 		<div class="app__body">
 
-			<aside class="app__sidebar">
+			<aside class="app__sidebar" v-if="$can('read_contents')">
 				<div :class="contentsOpen ? 'app__sidebar-inner app__sidebar-inner--open': 'app__sidebar-inner'">
 					<ContentsNavigation/>		
 				</div>
 			</aside>
 
-			<main class="app__main">			
-
+			<main :class="$can('read_contents') ? 'app__main' : 'app__main app__main--full'">			
 				<Header/>
 
 				<router-view></router-view>
+
 			</main>
 
 			<div :class="contentsOpen || toolsOpen ? 'overlay overlay--open' : 'overlay'" @click.prevent="closeNavigations()"></div>
@@ -51,7 +51,7 @@
 
 		<div class="app__bar">
 			<div class="app__sidebar app__footer">
-				<footer class="footer">
+				<footer :class="$can('read_contents') ? 'footer' : 'footer footer--left'">
 					<a href="https://github.com/NuclearCMS/Nuclear" target="_blank" class="footer__link">{{ $root.shared.nuclear_version }}<img src="/vendor/app/img/app-logo-mono.svg" alt="Nuclear Logo" class="footer__icon"></a>
 					<span class="footer__separator"></span>
 					<a href="https:/umomega.com" target="_blank" class="footer__link"><img src="/vendor/app/img/umo-logo-mono.svg" alt="umΩ Logo" class="footer__icon"></a>
@@ -66,13 +66,14 @@
 </template>
 
 <script>
-import {Notification, DeleteModal} from 'umomega-foundation';
+import {Notification, DeleteModal, RequiresPermissions} from 'umomega-foundation';
 // https://codeburst.io/global-loader-component-using-vue-js-and-axios-interceptors-3880a136a4ac
 import Header from './partials/Header';
 import ContentsNavigation from './partials/ContentsNavigation';
 import ToolsNavigation from './partials/ToolsNavigation';
 
 export default {
+	mixins: [RequiresPermissions],
 	components: { ContentsNavigation, ToolsNavigation, Header, Notification, DeleteModal },
 	data() { return {
 		contentsOpen: false,
@@ -97,6 +98,13 @@ export default {
 			this.toolsOpen = false
 			document.querySelector('html,body').classList.remove('is-clipped')
 		}
+	},
+	created() {
+		const self = this
+
+		Event.$on('user-updated', function() {
+			Fetcher.fetchUser()
+		})
 	}
 }
 </script>

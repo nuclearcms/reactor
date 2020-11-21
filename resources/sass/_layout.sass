@@ -9,7 +9,7 @@ body
 		left: 0
 		width: 100%
 		background-color: $white-ter
-		height: 10rem
+		height: 10.5rem
 		z-index: 0
 		@media screen and (max-width: $tablet)
 			height: 3.5rem
@@ -81,8 +81,14 @@ body
 		@media screen and (max-width: $desktop)
 			flex-basis: 100%
 
+		&--full
+			flex-basis: 100%
+
 	&__control
 		text-align: center
+
+		&--left
+			text-align: left !important
 	
 	@media screen and (max-width: $desktop)
 		&__control

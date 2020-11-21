@@ -12,10 +12,10 @@
 				<div class="dropdown-flap" v-text="content.content_type.name" :style="'background-color: ' + content.content_type.color.hex"></div>
 				<div class="dropdown-label" v-text="trans.get('foundation::general.options')"></div>
 				<div v-if="!content.is_locked">
-					<router-link v-if="!content.is_sterile" class="dropdown-item" :to="{ name: 'contents.create', params: { parent: content.id }}">
+					<router-link v-if="!content.is_sterile && content.content_type.allowed_children_types.length > 0" class="dropdown-item" :to="{ name: 'contents.create', params: { parent: content.id }}">
 						<i class="icon fas fa-plus has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.s_add_child') }}
 					</router-link>
-					<hr class="dropdown-divider" v-if="!content.is_sterile">
+					<hr class="dropdown-divider" v-if="!content.is_sterile && content.content_type.allowed_children_types.length > 0">
 					<router-link :to="{name: 'contents.edit', params: {id: content.id}}" class="dropdown-item">
 						<i class="icon fas fa-edit has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.s_edit') }}
 					</router-link>
@@ -52,6 +52,8 @@ export default {
 				.then(function(response) {
 					self.notifier.success(response.data.message)
 					Event.$emit('content-state-changed')
+					
+					if(response.data.event) Event.$emit(response.data.event, response.data)
 				})
 				.catch(function(error) { assess_error(error) })
 		},

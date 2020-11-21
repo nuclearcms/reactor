@@ -4,6 +4,8 @@ Route::middleware('permission:superadmin|read_contents')->group(function() {
 
 	Route::get('contents', 'ContentsController@index')->name('contents.index');
 	
+	Route::get('contents/roots', 'ContentsController@roots')->name('contents.roots');
+	
 	Route::get('contents/search', 'ContentsController@search')->name('contents.search');
 
 	Route::get('contents/precreate/{parent?}', 'ContentsController@precreate')->name('contents.precreate');

@@ -10,8 +10,8 @@
 			<a href="#" class="dropdown-item has-color-danger" @click.prevent="openDeleteModal({ bulk: false, route: 'contents/' + contentId})">
 				<i class="icon fas fa-trash"></i> {{ trans.get('hierarchy::contents.delete') }}
 			</a>
-			<hr class="dropdown-divider">
-			<router-link v-if="!resource.is_sterile" class="dropdown-item" :to="{ name: 'contents.create', params: { parent: contentId }}">
+			<hr class="dropdown-divider" v-if="!resource.is_sterile && resource.content_type.allowed_children_types.length > 0">
+			<router-link v-if="!resource.is_sterile && resource.content_type.allowed_children_types.length > 0" class="dropdown-item" :to="{ name: 'contents.create', params: { parent: contentId }}">
 				<i class="icon fas fa-plus has-color-grey-darker"></i> {{ trans.get('hierarchy::contents.add_child') }}
 			</router-link>
 			<hr class="dropdown-divider">
@@ -49,6 +49,8 @@ export default {
 				.then(function(response) {
 					self.notifier.success(response.data.message)
 					Event.$emit('content-state-changed')
+
+					if(response.data.event) Event.$emit(response.data.event, response.data)
 				})
 				.catch(function(error) { assess_error(error) })
 		},

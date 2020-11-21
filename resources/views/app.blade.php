@@ -18,15 +18,16 @@
 	<!-- Scripts -->
 	<script src="{{ route('utilities.translations', config('reactor.locale')) }}" defer></script>
 	<script>
-		window.locale = '{{ config('reactor.locale') }}';
-		window.app_locale = '{{ config('app.locale') }}';
-		window.app_locales = {!! json_encode(config('app.locales')) !!};
-		window.token = '{{ $user->api_token }}';
-		window.nuclear_version = '{{ nuclear_version() }}';
-		window.allowed_extensions = {!! json_encode(allowed_extensions()) !!};
-		window.allowed_mimetypes = {!! json_encode(allowed_mimetypes()) !!};
-		window.allowed_size = {{ max_upload_size() }};
+		window.locale = '{{ config('reactor.locale') }}'
+		window.app_locale = '{{ config('app.locale') }}'
+		window.app_locales = {!! json_encode(config('app.locales')) !!}
+		window.token = '{{ $user->api_token }}'
+		window.nuclear_version = '{{ nuclear_version() }}'
+		window.allowed_extensions = {!! json_encode(allowed_extensions()) !!}
+		window.allowed_mimetypes = {!! json_encode(allowed_mimetypes()) !!}
+		window.allowed_size = {{ max_upload_size() }}
 		window.permissions = {!! json_encode(auth()->user()->all_permissions) !!}
+		window.home_content = {{ config('app.home_content') }}
 	</script>
 	<script src="{{ asset('vendor/app/js/app.js') }}" defer></script>
 </head>

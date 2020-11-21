@@ -4,7 +4,7 @@
 			<p class="is-size-9 has-text-weight-bold has-color-grey-darker is-uppercase mb-xxs" v-text="trans.get('hierarchy::contents.ancestors')"></p>
 			<div>
 				<span v-for="(ancestor, index) in resource.ancestors" :key="index">
-					&nbsp;<i class="has-color-grey-light icon fas fa-long-arrow-alt-right" v-if="index != 0"></i>
+					<span v-if="index != 0">&nbsp;<i class="has-color-grey-light icon fas fa-long-arrow-alt-right"></i></span>
 					<router-link :to="{ name: (ancestor.hides_children || ancestor.content_type.hides_children ? 'contents.children' : 'contents.edit'), params: {id: ancestor.id} }" v-text="ancestor.title[$root.appLocale]"></router-link>
 				</span>
 			</div>

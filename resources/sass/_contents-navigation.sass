@@ -1,13 +1,13 @@
 .contents-navigation
-	height: calc(100vh - 7.75em)
+	min-height: calc(100vh - 7.75em)
 	box-shadow: $shadow-lg
 	border-radius: 1.5rem
-	border: 0.25rem solid $grey-lightest
+	border: 0.25rem solid $grey-lighter
 	background-color: $white
 	position: relative
 	padding: 1rem
 	@media screen and (max-width: $desktop)
-		height: calc(100vh - 3.5rem)
+		min-height: calc(100vh - 3.5rem)
 
 	&__flap
 		position: absolute
@@ -39,13 +39,14 @@
 		background-color: $primary
 		color: $white
 		padding: 0.5rem
-		top: 4.25rem
+		top: 4.75rem
 		transition: $duration-short
 		z-index: 2
 
 	&__locales
 		height: 2rem
 		position: relative
+		text-align: center
 		&::before
 			+pseudo-block
 			height: 2px
@@ -53,11 +54,185 @@
 			position: absolute
 			top: calc(50% - 1px)
 			left: -1rem
-			background-color: $grey-lightest
+			background-color: $grey-lighter
 			z-index: 0
+
+	&__locale
+		vertical-align: top
+		display: inline-block
+		width: 2rem
+		height: 2rem
+		border-radius: 50%
+		border: 2px solid $grey-lighter
+		position: relative
+		z-index: 1
+		font-weight: $weight-bold
+		color: $grey-light
+		background-color: $white
+		font-size: $size-8
+		line-height: 1.75rem
+		margin: 0 0.125rem
+		text-transform: uppercase
+		transition: all $duration-short
+
+		&--active
+			margin: -0.25rem 0.25rem
+			background-color: $primary
+			color: $white !important
+			line-height: 2.25rem
+			height: 2.5rem
+			width: 2.5rem
+			border-color: $primary
+			box-shadow: $shadow
+
+.contents-tree-outer
+	margin-top: 1.5rem
+	margin-left: -1rem
+	width: calc(100% + 1rem)
+	@media screen and (max-width: $desktop)
+		height: calc(100vh - 13.5rem)
+		overflow-y: scroll
+
+	& > .contents-tree
+		& > .content-item
+			border-top: 1px solid $white-ter
+			padding: 0.5rem 0 0.5rem 0.5rem
+			&::before, &::after
+				display: none
+		& > .content-item:first-child
+			border-top: 0
+			padding-top: 0
+
+		& > .content-item > .contents-tree::before
+			display: none
+
+.content-item
+	line-height: 2rem
+	position: relative
+
+	&__options .dropdown
+		line-height: 1.5
+
+	i
+		position: relative
+		top: -0.125rem
+
+	&::before
+		position: absolute
+		+pseudo-block
+		width: calc(0.5rem + 1px)
+		height: 2px
+		top: calc(1rem - 1px)
+		background-color: $grey-lighter
+		right: 100%
+
+	&::after
+		position: absolute
+		height: 2rem
+		width: 2px
+		background-color: $grey-lighter
+		top: calc(-0.75rem - 3px)
+		left: calc(-0.5rem - 3px)
+		+pseudo-block
+
+	&__icon
+		width: 0.75rem
+		height: 2rem
+		display: inline-block
+		position: relative
+		vertical-align: bottom
+		cursor: move
+
+		&::after, &::before
+			+pseudo-block
+			width: 0.75rem
+			height: 0.75rem
+			border: 2px solid $grey-lighter
+			border-radius: 50%
+			background-color: $white
+			position: absolute
+			left: 0
+			top: 0.625rem
+			z-index: 1
+
+		&::before
+			left: 0.25rem
+			border-color: $grey-lightest
+			display: none
+
+		&--home
+			position: relative
+			background-color: $white
+			z-index: 2
+
+			&::after, &::before
+				display: none
+
+	&.is-locked .content-item__icon
+		cursor: not-allowed
+
+	&--has-children .content-item__icon::before
+		display: block
+
+	&__link
+		color: $text
+		display: inline-block
+		max-width: calc(100% - 3rem)
+		padding: 0 0.375rem
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+		word-wrap: normal
+		vertical-align: bottom
+		font-size: 0.875rem
+
+	&__options
+		position: absolute
+		top: 0
+		right: 0
+		height: 2rem
+		width: 2rem
+
+	&__options-button
+		cursor: pointer
+		color: $grey-darker
+		height: 100%
+		width: 100%
+		padding: 0
+		margin: 0
+		border: 0
+		background-color: transparent
+		padding: 0.375rem 0.25rem 0.125rem
+		transition: color $duration-short
+
+.contents-tree
+	padding-left: 1rem
+
+	& > .content-item:last-child > .contents-tree::before
+			display: none
+
+	.contents-tree
+		position: relative
+		&::before
+			+pseudo-block
+			width: 2px
+			height: 100%
+			position: absolute
+			background-color: $grey-lighter
+			left: calc(-0.5rem - 3px)
+			top: calc(-1.125rem + 3px)
+
+	&--readonly
+		.content-item__icon
+			cursor: auto
 
 .no-touchevents
 	.contents-navigation
 		&__new:hover
 			color: $white
 			background-color: $primary-dark
+
+	.content-item__options-button
+		color: $grey-lighter
+		&:hover
+			color: $grey-darker

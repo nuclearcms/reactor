@@ -15206,6 +15206,10 @@ body::before {
 
 .contents-tree {
   padding-left: 1rem;
+  transition: opacity 400ms;
+}
+.contents-tree--disabled {
+  opacity: 0.4;
 }
 .contents-tree > .content-item:last-child > .contents-tree::before {
   display: none;

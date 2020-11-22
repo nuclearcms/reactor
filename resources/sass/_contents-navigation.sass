@@ -207,6 +207,10 @@
 
 .contents-tree
 	padding-left: 1rem
+	transition: opacity $duration-medium
+
+	&--disabled
+		opacity: 0.4
 
 	& > .content-item:last-child > .contents-tree::before
 			display: none

@@ -1,5 +1,5 @@
 <template>
-	<draggable :list="contents" :group="{name: 'nested'}" handle=".content-item__icon" :sort="can" :tag="'ul'" :animation="200" :class="'contents-tree' + (can ? '' : ' contents-tree--readonly')" :filter="'.is-locked'" @end="updateOrder" :data-id="parentId">
+	<draggable :list="contents" :group="{name: 'nested'}" handle=".content-item__icon" :sort="canSort" :tag="'ul'" :animation="200" :class="'contents-tree' + (can ? '' : ' contents-tree--readonly') + (isSorting ? ' contents-tree--disabled' : '')" :filter="'.is-locked'" @end="updateOrder" :data-id="parentId">
 		<li v-for="content in contents" v-if="content.title[editingLocale] != undefined" :class="'content-item' + (content.hides_children || content.content_type.hides_children ? ' content-item--has-children' : '') + (locked || content.is_locked ? ' is-locked' : '')" :key="content.id" :data-id="content.id">
 			<div class="is-relative">
 				<span v-if="content.id == $root.store.home_content" class="content-item__icon content-item__icon content-item__icon--home"><i class="is-size-8 fas fa-home has-color-grey"></i></span>
@@ -13,7 +13,7 @@
 					</ContentsDropdown>
 				</div>
 			</div>
-			<ContentsTree v-if="!content.is_sterile && (!content.hides_children && !content.content_type.hides_children) && content.content_type.allowed_children_types.length > 0" :contents="content.tree" :can="can" :editingLocale="editingLocale" :locked="content.is_locked" :parentId="content.id"/>
+			<ContentsTree v-if="!content.is_sterile && (!content.hides_children && !content.content_type.hides_children) && content.content_type.allowed_children_types.length > 0" :contents="content.tree" :can="canSort" :editingLocale="editingLocale" :locked="content.is_locked" :parentId="content.id"/>
 		</li>
 	</draggable>
 </template>
@@ -27,6 +27,9 @@ export default {
 	name: 'ContentsTree',
 	props: ['contents', 'editingLocale', 'can', 'locked', 'parentId'],
 	components: {ContentsDropdown, draggable},
+	data() { return {
+		isSorting: false
+	}},
 	methods: {
 		updateOrder(value) {
 			const self = this
@@ -34,18 +37,25 @@ export default {
 			var route = 'contents/' + value.item.dataset.id + '/move'
 			if(value.to.dataset.id) route += '/' + value.to.dataset.id
 
+			self.isSorting = true
+
 			axios.put(api_url_with_token(route), {position: value.newIndex})
 				.then(function(response) {
+					self.isSorting = false
 					self.notifier.success(response.data.message)
 					Event.$emit(response.data.event, {})
 				})
 				.catch(function(error) {
+					self.isSorting = false
 					Event.$emit('content-tree-modified')
-					
 					self.notifier.danger(error.response.data.message)
-
 					assess_error(error)
 				})
+		}
+	},
+	computed: {
+		canSort() {
+			return !this.isSorting && this.can
 		}
 	}
 }

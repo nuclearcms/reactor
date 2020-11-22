@@ -5,7 +5,7 @@
 		
 		<div class="field">
 			<div class="control has-icons-left">
-				<input type="search" class="input" name="q" :placeholder="trans.get('foundation::general.search_for')">
+				<input type="search" class="input" name="q" :placeholder="trans.get('foundation::general.search_for')" v-model="searchTerm" @keydown.enter.prevent="searchContents">
 				<span class="icon is-small is-left">
 					<i class="fas fa-search"></i>
 				</span>
@@ -31,7 +31,8 @@ export default {
 	components: { ContentsTree },
 	data() { return {
 		editingLocale: this.$root.appLocale,
-		contents: []
+		contents: [],
+		searchTerm: ''
 	}},
 	created() {
 		const self = this
@@ -54,6 +55,15 @@ export default {
 		},
 		changeEditingLocale(locale) {
 			this.editingLocale = locale
+		},
+		searchContents(value) {
+			const q = this.searchTerm
+
+			router.push({name: 'contents.index', query: {q: q}})
+
+			Event.$emit('search-query-changed', q)
+
+			this.searchTerm = ''
 		}
 	}
 }

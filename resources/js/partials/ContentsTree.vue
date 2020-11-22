@@ -40,6 +40,8 @@ export default {
 					Event.$emit(response.data.event, {})
 				})
 				.catch(function(error) {
+					Event.$emit('content-tree-modified')
+					
 					self.notifier.danger(error.response.data.message)
 
 					assess_error(error)

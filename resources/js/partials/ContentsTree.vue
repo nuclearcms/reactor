@@ -4,7 +4,7 @@
 			<div class="is-relative">
 				<span v-if="content.id == $root.store.home_content" class="content-item__icon content-item__icon content-item__icon--home"><i class="is-size-8 fas fa-home has-color-grey"></i></span>
 				<span v-else class="content-item__icon"></span>
-				<router-link :to="{ name: (content.hides_children || content.content_type.hides_children ? 'contents.children' : 'contents.edit'), params: {id: content.id} }" v-text="content.title[editingLocale]" class="content-item__link"/><i v-if="content.is_locked" class="is-size-9 fas fa-lock has-color-grey-light"></i> <i v-if="content.is_sterile" class="is-size-9 fas fa-comment-slash has-color-grey-light"></i>
+				<router-link :to="{ name: (content.hides_children || content.content_type.hides_children ? 'contents.children' : 'contents.edit'), params: {id: content.id} }" v-text="content.title[editingLocale]" class="content-item__link"/><i v-if="content.is_locked" class="is-size-9 fas fa-lock has-color-grey-light"></i> <i v-if="content.is_sterile" class="is-size-9 far fa-dot-circle has-color-grey-light"></i>
 				<div class="content-item__options">
 					<ContentsDropdown :can="can" :content="content">
 						<template v-slot:trigger>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {assess_error} from 'umomega-foundation'
 import ContentsDropdown from './ContentsDropdown'
 import draggable from 'vuedraggable'
 
@@ -28,8 +29,21 @@ export default {
 	components: {ContentsDropdown, draggable},
 	methods: {
 		updateOrder(value) {
-			console.log(value.to.dataset.id, value.newIndex, value.item.dataset.id)
-			// parent id, position, self id
+			const self = this
+
+			var route = 'contents/' + value.item.dataset.id + '/move'
+			if(value.to.dataset.id) route += '/' + value.to.dataset.id
+
+			axios.put(api_url_with_token(route), {position: value.newIndex})
+				.then(function(response) {
+					self.notifier.success(response.data.message)
+					Event.$emit(response.data.event, {})
+				})
+				.catch(function(error) {
+					self.notifier.danger(error.response.data.message)
+
+					assess_error(error)
+				})
 		}
 	}
 }

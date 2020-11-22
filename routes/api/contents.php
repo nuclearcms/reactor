@@ -21,6 +21,8 @@ Route::middleware('permission:superadmin|write_contents')->group(function() {
 	Route::put('contents/{content}', 'ContentsController@update')->name('contents.update');
 	Route::put('contents/{content}/settings', 'ContentsController@updateSettings')->name('contents.update.settings');
 	Route::put('contents/{content}/state', 'ContentsController@updateState')->name('contents.update.state');
+	Route::put('contents/{content}/move/{parent?}', 'ContentsController@move')->name('contents.update.move');
+	Route::put('contents/{content}/transform', 'ContentsController@transform')->name('contents.update.transform');
 	
 	Route::post('contents/{content}/translate', 'ContentsController@translate')->name('contents.translate');
 	Route::delete('contents/{content}/translate/{locale}', 'ContentsController@destroyTranslation')->name('contents.translate.destroy');

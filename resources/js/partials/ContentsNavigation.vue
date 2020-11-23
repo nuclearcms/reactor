@@ -24,7 +24,7 @@
 
 <script>
 import {RequiresPermissions, assess_error} from 'umomega-foundation'
-import ContentsTree from './ContentsTree'
+import {ContentsTree} from 'nuclear-hierarchy-ui'
 
 export default {
 	mixins: [ RequiresPermissions ],

@@ -18,7 +18,7 @@
 
 <script>
 import {View, Shower, Tabs} from 'umomega-foundation'
-import ContentsDatable from '../../partials/ContentsDatable'
+import {ContentsDatable} from 'nuclear-hierarchy-ui'
 import {TagsEditHelper} from 'umomega-tags'
 
 export default {

@@ -14377,7 +14377,6 @@ button.dropdown-item.is-active {
   margin-top: -3rem;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  margin-bottom: 1.75rem;
   box-shadow: 0 0.5em 1em -0.125em rgba(48, 48, 49, 0.2), 0 0px 0 1px rgba(48, 48, 49, 0.02);
   min-height: 3rem;
 }

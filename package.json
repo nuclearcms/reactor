@@ -23,7 +23,7 @@
     "dependencies": {
         "nuclear-hierarchy-ui": "^1.0.9",
         "umomega-auth": "^1.6.4",
-        "umomega-foundation": "^1.15.10",
+        "umomega-foundation": "^1.15.12",
         "umomega-media": "^1.3.4",
         "umomega-tags": "^1.4.1"
     }

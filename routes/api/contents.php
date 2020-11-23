@@ -12,6 +12,8 @@ Route::middleware('permission:superadmin|read_contents')->group(function() {
 
 	Route::get('contents/{content}', 'ContentsController@show')->name('contents.show');
 
+	Route::get('contents/{content}/children', 'ContentsController@children')->name('contents.children');
+	
 });
 
 Route::middleware('permission:superadmin|write_contents')->group(function() {

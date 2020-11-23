@@ -33,6 +33,7 @@ import ContentsSettings from './views/contents/ContentsSettings'
 import ContentsStatistics from './views/contents/ContentsStatistics'
 import ContentsTransform from './views/contents/ContentsTransform'
 import ContentTypesContents from './views/contenttypes/ContentTypesContents'
+import ContentsChildren from './views/contents/ContentsChildren'
 
 // Maintenance
 import ManageEnvironment from './views/ManageEnvironment'
@@ -65,6 +66,7 @@ export default {
         {path: '/contents/:id/settings', component: ContentsSettings, name: 'contents.settings'},
         {path: '/contents/:id/transform', component: ContentsTransform, name: 'contents.transform'},
         {path: '/contents/:id/statistics', component: ContentsStatistics, name: 'contents.statistics'},
+        {path: '/contents/:id/children/:locale?', component: ContentsChildren, name: 'contents.children'},
         
         // Media
         {path: '/media', component: MediaIndex, name: 'media.index'},

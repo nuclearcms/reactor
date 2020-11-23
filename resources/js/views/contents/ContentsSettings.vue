@@ -3,11 +3,7 @@
 		
 		<ContentsTitle :resource="resource" :contentTitle="contentTitle" :contentTypeName="contentTypeName" :contentTypeRoute="contentTypeRoute"/>
 
-		<tabs class="is-marginless" :tabs="[
-			{route: 'contents.edit', label: 'hierarchy::contents.single', active: false},
-			{route: 'contents.settings', label: 'hierarchy::contents.settings', active: true},
-			{route: 'contents.statistics', label: 'hierarchy::contents.statistics', active: false},
-		]"></tabs>
+		<tabs class="is-marginless" :tabs="tabs"></tabs>
 
 		<div class="paper">
 			<ContentsHeader :permission="$can('write_contents')" :resource="resource" :editingLocale="null" :errors="form.errors" :canHaveMoreTranslations="canHaveMoreTranslations" :canDeleteCurrentTranslation="false" :contentId="contentId"/>
@@ -56,6 +52,11 @@ export default {
 			{to: { name: 'contents.index'}, text: this.$root.trans.get('hierarchy::contents.multiple')}
 		],
 		guardedBy: 'read_contents',
+		tabs: [
+			{route: 'contents.edit', label: 'hierarchy::contents.single', active: false},
+			{route: 'contents.settings', label: 'hierarchy::contents.settings', active: true},
+			{route: 'contents.statistics', label: 'hierarchy::contents.statistics', active: false},
+		],
 		form: new Form({ is_visible: true, is_sterile: false, is_locked: false, status: 30, hides_children: false, priority: 1, published_at: null, children_display_mode: 'list', status: 100 }),
 		schema: [
 			[
@@ -120,8 +121,8 @@ export default {
 					options: {
 						required: true,
 						choices: [
-							{ value: 30, label: this.$root.trans.get('hierarchy::contents.mode_list')},
-							{ value: 40, label: this.$root.trans.get('hierarchy::contents.mode_tree')}
+							{ value: 'list', label: this.$root.trans.get('hierarchy::contents.mode_list')},
+							{ value: 'tree', label: this.$root.trans.get('hierarchy::contents.mode_tree')}
 						]
 					}
 				}
@@ -133,6 +134,17 @@ export default {
 			this.form.status = 50
 			this.requestUpdate('contents', '/settings')
 		}
+	},
+	mounted() {
+		const self = this
+
+		Event.$off('resource-loaded')
+		Event.$on('resource-loaded', function(data) {
+			if(data.contentType.hides_children || data.hides_children) self.tabs.unshift({ route: 'contents.children', label: 'hierarchy::contents.children', active: false})
+		})
+	},
+	beforeDestroy() {
+		Event.$off('resource-loaded')
 	}
 }
 </script>

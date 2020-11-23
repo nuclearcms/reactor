@@ -11,7 +11,7 @@
 		]"></tabs>
 
 		<div class="paper">
-			<ContentsDatable :route="'contenttypes.edit'" :indexloadroute="'contenttypes/' + $route.params.id + '/contents'" :hidestoolbar="true"/>
+			<ContentsDatable :route="'contenttypes.contents'" :indexloadroute="'contenttypes/' + $route.params.id + '/contents'" :hidestoolbar="true"/>
 		</div>
 	</div>
 </template>

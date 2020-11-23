@@ -5,7 +5,7 @@ export default {
 	mixins: [ View, Shower ],
 	components: { FormBody, SubmitFooter },
 	data() { return {
-		showRoute: 'contents',
+		showRoute: 'contents'
 	}},
 	computed: {
 		contentTitle() {

@@ -3,11 +3,7 @@
 		
 		<ContentsTitle :resource="resource" :contentTitle="contentTitle" :contentTypeName="contentTypeName" :contentTypeRoute="contentTypeRoute"/>
 
-		<tabs class="is-marginless" :tabs="[
-			{route: 'contents.edit', label: 'hierarchy::contents.single', active: true},
-			{route: 'contents.settings', label: 'hierarchy::contents.settings', active: false},
-			{route: 'contents.statistics', label: 'hierarchy::contents.statistics', active: false},
-		]"></tabs>
+		<tabs class="is-marginless" :tabs="tabs"></tabs>
 
 		<div class="paper">
 			<ContentsHeader :permission="$can('write_contents')" :resource="resource" :editingLocale="editingLocale" :errors="form.errors" :canHaveMoreTranslations="canHaveMoreTranslations" :canDeleteCurrentTranslation="canDeleteCurrentTranslation" :contentId="contentId"/>
@@ -75,6 +71,11 @@ export default {
 			{to: { name: 'contents.index'}, text: this.$root.trans.get('hierarchy::contents.multiple')}
 		],
 		guardedBy: 'read_contents',
+		tabs: [
+			{route: 'contents.edit', label: 'hierarchy::contents.single', active: true},
+			{route: 'contents.settings', label: 'hierarchy::contents.settings', active: false},
+			{route: 'contents.statistics', label: 'hierarchy::contents.statistics', active: false},
+		],
 		translatableFields: ['title'],
 		secondaryTranslatableFields: ['meta_title', 'meta_description', 'meta_author', 'keywords'],
 		form: new Form({content_type_id: '', title: '', meta_title: '', meta_description: '', meta_author: '', keywords: '', status: 100, tags: []}),
@@ -112,6 +113,7 @@ export default {
 	watch: {
 		$route(to, from) {
 			if(from.params.id != to.params.id) this.loadResource()
+			if(from.params.locale != to.params.locale) this.editingLocale = to.params.locale
 		}
 	},
 	methods: {
@@ -131,6 +133,12 @@ export default {
 				self.form.populate(data.extensions)
 				self.schema.push(field)
 			})
+			
+			if(self.resource.contentType.hides_children || self.resource.hides_children) {
+				self.tabs.unshift({ route: 'contents.children', label: 'hierarchy::contents.children', active: false})
+			} else if(self.tabs.length > 3) {
+				self.tabs.shift()
+			}
 		})
 	},
 	destroyed() {

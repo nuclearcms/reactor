@@ -20,6 +20,8 @@ Route::middleware('permission:superadmin|write_contents')->group(function() {
 
 	Route::delete('contents/bulk', 'ContentsController@destroyBulk')->name('contents.destroy.bulk');
 	Route::delete('contents/{content}', 'ContentsController@destroy')->name('contents.destroy');
+
+	Route::post('contents/{content}/duplicate', 'ContentsController@duplicate')->name('contents.duplicate');
 });
 
 Route::middleware('permission:superadmin|read_contents')->group(function() {

@@ -66,11 +66,11 @@
 </template>
 
 <script>
-import {Notification, DeleteModal, RequiresPermissions} from 'umomega-foundation';
+import {Notification, DeleteModal, RequiresPermissions} from 'umomega-foundation'
 // https://codeburst.io/global-loader-component-using-vue-js-and-axios-interceptors-3880a136a4ac
-import Header from './partials/Header';
-import ContentsNavigation from './partials/ContentsNavigation';
-import ToolsNavigation from './partials/ToolsNavigation';
+import Header from './partials/Header'
+import ContentsNavigation from './partials/ContentsNavigation'
+import ToolsNavigation from './partials/ToolsNavigation'
 
 export default {
 	mixins: [RequiresPermissions],

@@ -15047,6 +15047,12 @@ body::before {
   position: -webkit-sticky;
   position: sticky;
   top: 1.25rem;
+  width: 18rem;
+}
+@media screen and (max-width: 1216px) {
+  .app__sidebar-inner {
+    width: 16rem;
+  }
 }
 @media screen and (max-width: 1024px) {
   .app__sidebar-inner {

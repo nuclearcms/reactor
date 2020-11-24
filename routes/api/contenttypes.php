@@ -25,4 +25,6 @@ Route::middleware('permission:superadmin|write_contenttypes')->group(function() 
 	Route::delete('contenttypes/bulk', 'ContentTypesController@destroyBulk')->name('contenttypes.destroy.bulk');
 	Route::delete('contenttypes/{content_type}', 'ContentTypesController@destroy')->name('contenttypes.destroy');
 
+	Route::post('contenttypes/{content_type}/duplicate', 'ContentTypesController@duplicate')->name('contenttypes.duplicate');
+
 });

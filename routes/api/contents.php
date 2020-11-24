@@ -1,22 +1,11 @@
 <?php
 
-Route::middleware('permission:superadmin|read_contents')->group(function() {
+Route::middleware('permission:superadmin|write_contents')->group(function() {
 
-	Route::get('contents', 'ContentsController@index')->name('contents.index');
-	
-	Route::get('contents/roots', 'ContentsController@roots')->name('contents.roots');
-	
-	Route::get('contents/search', 'ContentsController@search')->name('contents.search');
-
+	// These have to be registered before the show route
 	Route::get('contents/precreate/{parent?}', 'ContentsController@precreate')->name('contents.precreate');
 
-	Route::get('contents/{content}', 'ContentsController@show')->name('contents.show');
-
-	Route::get('contents/{content}/children', 'ContentsController@children')->name('contents.children');
-	
-});
-
-Route::middleware('permission:superadmin|write_contents')->group(function() {
+	Route::get('contents/pretransform/{content?}', 'ContentsController@pretransform')->name('contents.pretransform');
 
 	Route::post('contents/{parent?}', 'ContentsController@store')->name('contents.store');
 
@@ -32,3 +21,18 @@ Route::middleware('permission:superadmin|write_contents')->group(function() {
 	Route::delete('contents/bulk', 'ContentsController@destroyBulk')->name('contents.destroy.bulk');
 	Route::delete('contents/{content}', 'ContentsController@destroy')->name('contents.destroy');
 });
+
+Route::middleware('permission:superadmin|read_contents')->group(function() {
+
+	Route::get('contents', 'ContentsController@index')->name('contents.index');
+	
+	Route::get('contents/roots', 'ContentsController@roots')->name('contents.roots');
+	
+	Route::get('contents/search', 'ContentsController@search')->name('contents.search');
+
+	Route::get('contents/{content}', 'ContentsController@show')->name('contents.show');
+
+	Route::get('contents/{content}/children', 'ContentsController@children')->name('contents.children');
+	
+});
+

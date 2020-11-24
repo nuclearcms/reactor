@@ -21,9 +21,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "nuclear-hierarchy-ui": "^1.1.2",
+        "nuclear-hierarchy-ui": "^1.2.0",
         "umomega-auth": "^1.6.4",
-        "umomega-foundation": "^1.15.12",
+        "umomega-foundation": "^1.15.13",
         "umomega-media": "^1.3.4",
         "umomega-tags": "^1.4.1"
     }

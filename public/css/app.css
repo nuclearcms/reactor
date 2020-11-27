@@ -14364,6 +14364,161 @@ button.dropdown-item.is-active {
   line-height: 1.75;
 }
 
+.media-field-outer .button.is-danger {
+  background-color: transparent !important;
+}
+
+.media-field {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  min-height: 2.5em;
+  padding: 0.5rem;
+  background-color: #FFFFFF;
+  border-color: #E8E8E8;
+  transition: border-color 150ms;
+}
+.media-field.is-danger {
+  border-color: #EF3340;
+}
+.media-field.is-active {
+  border-color: #00249C;
+}
+
+.single-medium {
+  position: relative;
+  width: 100%;
+}
+.single-medium__progress {
+  border-radius: 4px;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background-color: #F4F4F4;
+  overflow: hidden;
+}
+.single-medium__progress-bar {
+  transition: width 150ms;
+  background-color: #3F5AB4;
+  height: 100%;
+}
+.single-medium__info {
+  height: 2.5rem;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+}
+.single-medium__thumb {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 2.5rem;
+  height: 2.5rem;
+}
+.single-medium__icon, .single-medium__image {
+  border-radius: 4px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(48, 48, 49, 0.2), 0 0px 0 1px rgba(48, 48, 49, 0.02);
+}
+.single-medium__name {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: calc(100% - 2.5rem);
+  padding-left: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  line-height: 2.5rem;
+  font-size: 0.875rem;
+}
+.single-medium__icon {
+  background-color: #00249C;
+  color: #FFFFFF;
+  line-height: 2.5rem;
+  text-align: center;
+}
+.single-medium__icon .fas {
+  font-size: 1rem !important;
+}
+
+.multiple-media {
+  width: calc(100% + 0.5rem);
+  margin-right: -0.5rem;
+  margin-bottom: -0.5rem;
+}
+.multiple-media::after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+.multiple-media .delete {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.multiple-media__slide {
+  width: calc(20% - 0.5rem);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  border-radius: 4px;
+  float: left;
+  display: inline-block;
+  padding-top: calc(20% - 0.5rem);
+  position: relative;
+  background-color: #F4F4F4;
+  cursor: move;
+}
+@media screen and (max-width: 1408px) {
+  .multiple-media__slide {
+    width: calc(25% - 0.5rem);
+    padding-top: calc(25% - 0.5rem);
+  }
+}
+.multiple-media--disabled .multiple-media__slide {
+  cursor: not-allowed;
+}
+.multiple-media__progress {
+  width: calc(100% - 1.5rem);
+  left: 0.75rem;
+  border-radius: 4px;
+  height: 0.25rem;
+  position: absolute;
+  top: calc(50% - 0.125rem);
+  background-color: #E8E8E8;
+  overflow: hidden;
+}
+.multiple-media__progress-bar {
+  transition: width 150ms;
+  background-color: #00249C;
+  height: 0.25rem;
+}
+.multiple-media__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.multiple-media__icon {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  top: calc(50% - 1.5rem);
+  width: 100%;
+}
+
+.button.is-inverted.is-danger:focus {
+  color: #D42D38 !important;
+}
+
+.button.is-inverted.is-danger:active {
+  color: #FFFFFF !important;
+  background-color: #D42D38 !important;
+}
+
+.no-touchevents .button.is-inverted.is-danger:hover {
+  color: #D42D38;
+}
+
 .paper {
   border-radius: 8px;
   box-shadow: 0 1em 2em -0.25em rgba(48, 48, 49, 0.2), 0 0px 0 1px rgba(48, 48, 49, 0.02);
@@ -14416,6 +14571,9 @@ button.dropdown-item.is-active {
   background-color: #F9F9F9;
   border-left: 1px solid #F4F4F4;
   flex-basis: 20rem;
+  width: 20rem;
+  flex-grow: 0;
+  flex-shrink: 0;
   padding: 2rem 1.5rem;
 }
 @media screen and (max-width: 1024px) {
@@ -14426,6 +14584,7 @@ button.dropdown-item.is-active {
 @media screen and (max-width: 769px) {
   .paper__side {
     padding: 2rem 0.75rem;
+    width: auto;
   }
 }
 .paper__footer {
@@ -14766,6 +14925,7 @@ button.dropdown-item.is-active {
 .contents-tree-outer--large .content-item::after {
   top: calc(-2rem - 3px);
   height: 4rem;
+  left: calc(-0.5rem - 2px);
 }
 .contents-tree-outer--large .content-item__icon {
   width: 1.5rem;
@@ -14905,9 +15065,14 @@ button.dropdown-item.is-active {
   left: calc(-0.875rem + 1px);
   top: -0.25rem;
 }
-.content-item__thumb img {
-  border: 2px solid #B7B7B8;
+.content-item__thumb img, .content-item__thumb span {
+  border: 2px solid #CFCFCF;
   border-radius: 50%;
+}
+.content-item__thumb span {
+  background-color: #E8E8E8;
+  display: block;
+  height: 100%;
 }
 @media screen and (max-width: 769px) {
   .content-item__thumb {

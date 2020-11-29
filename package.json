@@ -21,10 +21,10 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "nuclear-hierarchy-ui": "^1.5.0",
+        "nuclear-hierarchy-ui": "^1.5.3",
         "umomega-auth": "^1.6.4",
-        "umomega-foundation": "^1.17.0",
-        "umomega-media": "^1.5.0",
+        "umomega-foundation": "^1.18.0",
+        "umomega-media": "^1.5.2",
         "umomega-tags": "^1.4.1"
     }
 }

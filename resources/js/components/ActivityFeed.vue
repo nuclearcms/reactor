@@ -1,5 +1,5 @@
 <template>
-	<div class="activity-feed">
+	<div class="activity-feed" v-infinite-scroll="load" infinite-scroll-disabled="busy"infinite-scroll-distance="300">
 		<div v-for="(activity, index) in activities" v-if="activities.length > 0">
 			<div class="activity" v-if="activity.causer != null">
 				<div class="activity__causer-outer">
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import infiniteScroll from 'vue-infinite-scroll'
 import {ImageUpdated, MediaDestroyedBulk, MediumDestroyed, MediumEmbedded, MediumUpdated, MediumUploaded} from 'umomega-media'
 import {PermissionDestroyed, PermissionRevoked, PermissionsDestroyedBulk, PermissionStored, PermissionUpdated, ProfileUpdated, ProfileUpdatedPassword, RoleDestroyed, RoleRevoked, RolesDestroyedBulk, RoleStored, RoleUpdated, UserDestroyed, UsersDestroyedBulk, UserStored, UserUpdated, UserUpdatedPassword} from 'umomega-auth'
 import {TagDestroyed, TagsDestroyedBulk, TagStored, TagTranslated, TagTranslationDestroyed, TagUpdated} from 'umomega-tags'
@@ -45,6 +46,7 @@ import {ContentTypeDestroyed, ContentTypesDestroyedBulk, ContentTypeStored, Cont
 
 
 export default {
+	directives: { infiniteScroll },
 	components: { ImageUpdated, MediaDestroyedBulk, MediumDestroyed, MediumEmbedded, MediumUpdated, MediumUploaded, PermissionDestroyed, PermissionRevoked, PermissionsDestroyedBulk, PermissionStored, PermissionUpdated, ProfileUpdated, ProfileUpdatedPassword, RoleDestroyed, RoleRevoked, RolesDestroyedBulk, RoleStored, RoleUpdated, UserDestroyed, UsersDestroyedBulk, UserStored, UserUpdated, UserUpdatedPassword, TagDestroyed, TagsDestroyedBulk, TagStored, TagTranslated, TagTranslationDestroyed, TagUpdated, ContentTypeDestroyed, ContentTypesDestroyedBulk, ContentTypeDuplicated, ContentTypeStored, ContentTypeUpdated, ContentFieldDestroyed, ContentFieldStored, ContentFieldUpdated, ContentDestroyed, ContentDuplicated, ContentMoved, ContentTransformed, ContentUpdated, ContentStored, ContentTranslated, ContentSettingsUpdated, ContentStateUpdated, ContentTranslationDestroyed, ContentsDestroyedBulk },
 	props: ['loadurl'],
 	data() { return {

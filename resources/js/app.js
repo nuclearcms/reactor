@@ -3,12 +3,13 @@ import {Modernizr} from 'umomega-foundation'
 window.Modernizr = Modernizr
 
 // Import Vue and configure
-import Vue from "vue"
+import Vue from 'vue'
 Vue.config.productionTip = false
 
 // lang.js
-import Lang from "lang.js"
-Vue.prototype.trans = new Lang({ messages, locale: locale, fallback: 'en' })
+import Lang from 'lang.js'
+window.trans = new Lang({ messages, locale: locale, fallback: 'en' })
+Vue.prototype.trans = window.trans
 Vue.prototype.locale = locale
 Vue.prototype.appLocale = app_locale
 Vue.prototype.appLocales = app_locales

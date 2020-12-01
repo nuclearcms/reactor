@@ -82,7 +82,7 @@ export default {
 			return format_date_for_humans(date);
 		},
 		thumbnailIcon(type) {
-			return 'fas fa-' + (type == 'document' ? 'file' : 'file' + type)
+			return 'fas fa-' + (type == 'document' ? 'file' : 'file-' + type)
 		}
 	}
 }

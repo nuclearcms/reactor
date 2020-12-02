@@ -31,6 +31,7 @@ Route::middleware('permission:superadmin|read_contents')->group(function() {
 	Route::get('contents/roots', 'ContentsController@roots')->name('contents.roots');
 	
 	Route::get('contents/search', 'ContentsController@search')->name('contents.search');
+	Route::get('contents/search/relatable', 'ContentsController@searchRelatable')->name('contents.search.relatable');
 
 	Route::get('contents/{content}', 'ContentsController@show')->name('contents.show');
 

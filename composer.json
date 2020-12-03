@@ -1,0 +1,9 @@
+{
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nuclear\\Reactor\\Providers\\ReactorServiceProvider"
+            ]
+        }
+    }
+}

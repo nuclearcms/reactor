@@ -41,5 +41,16 @@ return [
 	'section_cleanup' => 'Cleanup',
 	'section_cleanup_desc' => 'Cleanup commands that clear application caches',
 	'section_security' => 'Security',
-	'section_security_desc' => 'Commands for maintaining security of the application'
+	'section_security_desc' => 'Commands for maintaining security of the application',
+
+	'per_last7' => 'Last 7 Days',
+	'per_last28' => 'Last 28 Days',
+	'total_views' => 'Total Views',
+	'views_today' => 'Views Today',
+	'latest_view' => 'Latest View',
+
+	'most_viewed' => 'Most Viewed',
+	'recently_viewed' => 'Recently Viewed',
+	'recently_updated' => 'Recently Updated',
+	'recently_created' => 'Recently Created'
 ];

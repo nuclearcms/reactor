@@ -36,6 +36,8 @@ Route::middleware('permission:superadmin|read_contents')->group(function() {
 	Route::get('contents/{content}', 'ContentsController@show')->name('contents.show');
 
 	Route::get('contents/{content}/children', 'ContentsController@children')->name('contents.children');
+
+	Route::get('contents/{content}/statistics', 'ContentsController@statistics')->name('contents.statistics');
 	
 });
 

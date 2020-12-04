@@ -1,0 +1,40 @@
+.dashboard-contents
+	display: flex
+	flex-wrap: wrap
+	width: calc(100% + 1.5rem)
+	margin-right: -1.5rem
+
+.dashboard-list
+	padding-right: 1.5rem
+	padding-bottom: 1.5rem
+	flex-basis: 100%
+	flex-grow: 0
+	flex-shrink: 0
+	@media screen and (min-width: 32rem)
+		flex-basis: 50%
+	+tablet
+		flex-basis: 33.3333333333%
+	+desktop
+		flex-basis: 25%
+
+	&__heading
+		color: $primary
+		font-weight: $weight-bold
+		letter-spacing: 0.0625rem
+		text-transform: uppercase
+		font-size: $size-6
+		border-bottom: 0.125rem solid $primary
+		padding: 0.5rem 0
+
+	&__item
+		border-bottom: 1px solid $grey-lightest
+		padding: 0.5rem 0
+
+	&__link
+		display: block
+		font-size: $size-7
+		color: $black-lighter
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+		word-wrap: normal

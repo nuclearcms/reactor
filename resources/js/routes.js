@@ -25,7 +25,8 @@ import ProfileChronicle from './views/profile/ProfileChronicle'
 import {ContentTypesIndex, ContentTypesCreate, ContentTypesEdit, ContentTypesFields, ContentFieldsCreate, ContentFieldsEdit} from 'nuclear-hierarchy-ui'
 
 // Temporary
-import {ContentsIndex, ContentsCreate, ContentsEdit, ContentsTranslate, ContentsSettings, ContentsStatistics, ContentsTransform, ContentTypesContents, ContentsChildren} from 'nuclear-hierarchy-ui'
+import {ContentsIndex, ContentsCreate, ContentsEdit, ContentsTranslate, ContentsSettings, ContentsTransform, ContentTypesContents, ContentsChildren} from 'nuclear-hierarchy-ui'
+import ContentsStatistics from './views/contents/ContentsStatistics'
 
 // Maintenance
 import ManageEnvironment from './views/ManageEnvironment'

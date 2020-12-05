@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="no-js">
+<html lang="{{ str_replace('_', '-', $user->locale) }}" class="no-js">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -16,17 +16,17 @@
 	@stack('styles')
 
 	<!-- Scripts -->
-	<script src="{{ route('utilities.translations', config('reactor.locale')) }}" defer></script>
+	<script src="{{ route('utilities.translations', $user->locale) }}" defer></script>
 	<script>
-		window.locale = '{{ config('reactor.locale') }}'
-		window.app_locale = '{{ config('app.locale') }}'
+		window.locale = '{{ $user->locale }}'
+		window.app_locale = '{{ config('reactor.locale') }}'
 		window.app_locales = {!! json_encode(config('app.locales')) !!}
 		window.token = '{{ $user->api_token }}'
 		window.nuclear_version = '{{ nuclear_version() }}'
 		window.allowed_extensions = {!! json_encode(allowed_extensions()) !!}
 		window.allowed_mimetypes = {!! json_encode(allowed_mimetypes()) !!}
 		window.allowed_size = {{ max_upload_size() }}
-		window.permissions = {!! json_encode(auth()->user()->all_permissions) !!}
+		window.permissions = {!! json_encode($user->all_permissions) !!}
 		window.home_content = {{ config('app.home_content') }}
 	</script>
 	<script src="{{ asset('vendor/app/js/app.js') }}" defer></script>

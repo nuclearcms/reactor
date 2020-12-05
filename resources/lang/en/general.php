@@ -33,6 +33,7 @@ return [
 	'maintenance_route_clear' => 'Remove the route cache file',
 	'maintenance_view_cache' => 'Compile all of the application\'s Blade templates',
 	'maintenance_view_clear' => 'Clear all compiled view files',
+	'maintenance_sitemap_generate' => 'Generate the sitemap',
 
 	'section_maintenance' => 'Maintenance',
 	'section_maintenance_desc' => 'Common maintenance commands',
@@ -40,6 +41,8 @@ return [
 	'section_performance_desc' => 'Caching commands that increase application performance',
 	'section_cleanup' => 'Cleanup',
 	'section_cleanup_desc' => 'Cleanup commands that clear application caches',
+	'section_seo' => 'SEO (Search Engine Optimization)',
+	'section_seo_desc' => 'Commands for enhancing SEO capabilities of the application',
 	'section_security' => 'Security',
 	'section_security_desc' => 'Commands for maintaining security of the application',
 

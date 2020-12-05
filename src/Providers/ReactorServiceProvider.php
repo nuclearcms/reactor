@@ -40,6 +40,10 @@ class ReactorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->commands([
+            \Nuclear\Reactor\Console\GenerateSitemap::class,
+        ]);
+
         $this->publishes([__DIR__ . '/../../config/reactor.php' => config_path('reactor.php')], 'config');
 
         $this->publishes([__DIR__ . '/../../resources/lang' => resource_path('lang/vendor/reactor')], 'lang');

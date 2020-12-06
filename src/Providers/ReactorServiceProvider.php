@@ -30,7 +30,7 @@ class ReactorServiceProvider extends ServiceProvider
 
         $this->app->register(ReactorEventServiceProvider::class);
 
-        require_once(__DIR__ . '/../Support/helpers.php');
+        require(__DIR__ . '/../Support/helpers.php');
 
         $this->app->singleton('Nuclear\Reactor\Support\TokenManager', function($app) {
             return $app->make('\Nuclear\Reactor\Support\TokenManager');

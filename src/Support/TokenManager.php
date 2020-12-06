@@ -58,7 +58,7 @@ class TokenManager {
      */
     public function makeNewToken($key, $duration = 60)
     {
-        $token = str_random(32);
+        $token = \Str::random(40);
 
         $this->setToken($key, $token, $duration);
 

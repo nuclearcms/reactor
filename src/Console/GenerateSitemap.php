@@ -19,7 +19,7 @@ class GenerateSitemap extends Command {
      *
      * @var string
      */
-    protected $description = 'Generate the sitemap.';
+    protected $description = 'Generate the sitemap';
 
     /**
      * Execute the console command.
@@ -28,7 +28,6 @@ class GenerateSitemap extends Command {
      */
     public function handle()
     {
-        // modify this to your own needs
         SitemapGenerator::create(config('app.url'))
             ->writeToFile(public_path('sitemap.xml'));
     }

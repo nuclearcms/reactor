@@ -87,29 +87,28 @@ class InstallNuclear extends Command {
      */
     protected function setupDatabaseInformationAndMigrate($helper)
     {
-    	$helper->setEnvVariable(
-    		'DB_CONNECTION',
-    		$this->anticipate('Please enter the database connection:', ['mysql', 'sqlite', 'pgsql, sqlsrv']));
+        $connection = $this->anticipate('Please enter the database connection:', ['sqlite', 'mysql', 'pgsql', 'sqlsrv']);
+    	$helper->setEnvVariable('DB_CONNECTION', $connection);
 
-    	$helper->setEnvVariable(
-    		'DB_HOST',
-    		$this->anticipate('Please enter the database host:', ['127.0.0.1', 'localhost']));
+        $host = $this->anticipate('Please enter the database host:', ['127.0.0.1', 'localhost']);
+    	$helper->setEnvVariable('DB_HOST', $host);
 
-    	$helper->setEnvVariable(
-    		'DB_PORT',
-    		$this->anticipate('Please enter the database PORT:', ['3306', '5432']));
+        $port = $this->anticipate('Please enter the database PORT:', ['3306', '5432'])
+    	$helper->setEnvVariable('DB_PORT', $port);
         
-        $helper->setEnvVariable(
-    		'DB_DATABASE',
-    		$this->anticipate('Please enter the database name:', ['nuclear', 'reactor', 'awesome']));
+        $database = $this->anticipate('Please enter the database name:', ['nuclear', 'reactor', 'awesome']);
+        $helper->setEnvVariable('DB_DATABASE', $database);
         
-		$helper->setEnvVariable(
-    		'DB_USERNAME',
-    		$this->anticipate('Please enter the database user:', ['root']));
+        $username = $this->anticipate('Please enter the database user:', ['root']);
+		$helper->setEnvVariable('DB_USERNAME', $username);
 
-		$helper->setEnvVariable(
-    		'DB_PASSWORD',
-    		$this->ask('Please enter the database password:'));
+        $password = $this->ask('Please enter the database password:');
+		$helper->setEnvVariable('DB_PASSWORD', $password);
+
+        config([
+            'database.default' => $connection,
+            'database.connections.' . $connection => compact('host', 'port', 'database', 'username', 'password')
+        ]);
 
         $helper->migrateAndSeedDatabase();
     }

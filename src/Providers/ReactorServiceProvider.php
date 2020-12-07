@@ -56,6 +56,8 @@ class ReactorServiceProvider extends ServiceProvider
         $this->publishes([__DIR__ . '/../../resources/views' => resource_path('views/vendor/reactor')], 'views');
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'reactor');
 
+        $this->publishes([__DIR__ . '/../../public' => public_path('vendor/app')], 'public');
+
         $this->loadRoutesFrom(__DIR__ . '/../../routes/all.php');
 
         \View::composer('reactor::app', function($view) {

@@ -30,10 +30,11 @@ class InstallNuclear extends Command {
     public function handle(InstallHelper $helper)
     {
     	$this->info('Welcome to Nuclear CMS! The installer will ask you some questions...');
+        if(!$this->confirm('Before resuming you should have entered database connection information in the environment file. Confirm if you have entered the necessary information; or enter "n" to exit.')) exit;
 
     	$this->setupInitialSiteInformation($helper);
 
-    	$this->info('Great! Now we need a database, so you need to create it before giving below information:');
+    	$this->info('Great! Now we need to setup the database, so you should have created it and entered the necessary information in the environment file.');
     	$this->setupDatabaseInformationAndMigrate($helper);
 
     	$this->info('Finally, Nuclear will grant you super admin powers! Please enter your user information:');
@@ -86,14 +87,15 @@ class InstallNuclear extends Command {
      * @param InstallHelper $helper
      */
     protected function setupDatabaseInformationAndMigrate($helper)
-    {
+    {   
+        /*
         $connection = $this->anticipate('Please enter the database connection:', ['sqlite', 'mysql', 'pgsql', 'sqlsrv']);
     	$helper->setEnvVariable('DB_CONNECTION', $connection);
 
         $host = $this->anticipate('Please enter the database host:', ['127.0.0.1', 'localhost']);
     	$helper->setEnvVariable('DB_HOST', $host);
 
-        $port = $this->anticipate('Please enter the database PORT:', ['3306', '5432'])
+        $port = $this->anticipate('Please enter the database port:', ['3306', '5432']);
     	$helper->setEnvVariable('DB_PORT', $port);
         
         $database = $this->anticipate('Please enter the database name:', ['nuclear', 'reactor', 'awesome']);
@@ -109,6 +111,7 @@ class InstallNuclear extends Command {
             'database.default' => $connection,
             'database.connections.' . $connection => compact('host', 'port', 'database', 'username', 'password')
         ]);
+        */
 
         $helper->migrateAndSeedDatabase();
     }

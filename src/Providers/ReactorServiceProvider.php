@@ -10,7 +10,7 @@ class ReactorServiceProvider extends ServiceProvider
     /**
      * Nuclear Version
      */
-    const VERSION = '4.0.7';
+    const VERSION = '4.0.8';
 
     /**
      * Register any application services.
@@ -19,9 +19,7 @@ class ReactorServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../../config/reactor.php', 'reactor'
-        );
+        $this->mergeConfigFrom(__DIR__ . '/../../config/reactor.php', 'reactor');
 
         $this->app->register(ReactorEventServiceProvider::class);
 
@@ -39,9 +37,9 @@ class ReactorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->commands([
-            \Nuclear\Reactor\Console\GenerateSitemap::class,
-        ]);
+        $commands = [\Nuclear\Reactor\Console\GenerateSitemap::class];
+        if(!is_installed()) $commands[] = \Nuclear\Reactor\Console\InstallNuclear::class;
+        $this->commands($commands);
 
         $this->publishes([__DIR__ . '/../../config/reactor.php' => config_path('reactor.php')], 'config');
 

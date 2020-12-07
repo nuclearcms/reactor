@@ -2,7 +2,6 @@
 
 namespace Nuclear\Reactor\Providers;
 
-use App\Providers\TelescopeServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class ReactorServiceProvider extends ServiceProvider
@@ -11,7 +10,7 @@ class ReactorServiceProvider extends ServiceProvider
     /**
      * Nuclear Version
      */
-    const VERSION = '4.0.6';
+    const VERSION = '4.0.7';
 
     /**
      * Register any application services.
@@ -23,10 +22,6 @@ class ReactorServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/reactor.php', 'reactor'
         );
-
-        if ($this->app->isLocal()) {
-            $this->app->register(TelescopeServiceProvider::class);
-        }
 
         $this->app->register(ReactorEventServiceProvider::class);
 

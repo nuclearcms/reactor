@@ -2,7 +2,7 @@
 	"name": "nuclear/reactor",
 	"description": "Core Library for the Nuclear CMS",
 	"keywords": ["umomega", "nuclear", "laravel", "reactor", "php"],
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"license": "MIT",
 	"authors": [
         {
@@ -15,7 +15,6 @@
     "require": {
 		"php": "^7.3|^8.0",
     	"laravel/framework": "^8.0",
-    	"laravel/telescope": "^4.0",
     	"nuclear/hierarchy": "^3.0",
     	"umomega/auth": "^1.1",
     	"umomega/foundation": "^1.0",
@@ -23,8 +22,7 @@
     	"umomega/tags": "^1.0",
     	"codezero/laravel-localized-routes": "^2.4",
     	"igaster/laravel-theme": "^2.0",
-    	"spatie/laravel-sitemap": "^5.9",
-        "fruitcake/laravel-telescope-toolbar": "^1.2"
+    	"spatie/laravel-sitemap": "^5.9"
     },
     "autoload": {
     	"psr-4": {

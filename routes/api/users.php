@@ -8,7 +8,7 @@ Route::middleware('permission:superadmin|read_users')->group(function() {
 	
 	Route::get('users/{user}', 'UsersController@show')->name('users.show');
 
-	Route::get('users/{user}/chronicle', 'UsersController@chronicle')->name('users.chronicle')->middleware('permission:read_chronicle');
+	Route::get('users/{user}/chronicle', 'UsersController@chronicle')->name('users.chronicle')->middleware('permission:superadmin|read_chronicle');
 });
 
 Route::middleware('permission:superadmin|write_users')->group(function() {

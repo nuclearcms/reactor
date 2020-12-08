@@ -10,7 +10,7 @@ class ReactorServiceProvider extends ServiceProvider
     /**
      * Nuclear Version
      */
-    const VERSION = '4.0.11';
+    const VERSION = '4.0.12';
 
     /**
      * Register any application services.
@@ -37,7 +37,12 @@ class ReactorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $commands = [\Nuclear\Reactor\Console\GenerateSitemap::class];
+        $commands = [
+            \Nuclear\Reactor\Console\GenerateSitemap::class,
+            \Nuclear\Reactor\Console\PrepareForDeployment::class,
+            \Nuclear\Reactor\Console\Optimize::class
+        ];
+        
         if(!is_installed()) $commands[] = \Nuclear\Reactor\Console\InstallNuclear::class;
         $this->commands($commands);
 

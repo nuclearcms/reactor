@@ -71,7 +71,7 @@ class InstallHelper {
     {
     	$contentType = ContentType::create(['name' => 'Home', 'is_visible' => true, 'hides_children' => false, 'color' => '{"hex":"#00249C"}', 'is_taggable' => false, 'allowed_children_types' => []]);
 
-    	$content = Content::create(['title' => 'Home', 'content_type_id' => $contentType->id]);
+    	$content = Content::create(['title' => 'Home', 'content_type_id' => $contentType->id, 'status' => 50]);
     }
 
     /**

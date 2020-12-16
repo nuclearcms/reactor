@@ -39,7 +39,7 @@ export default {
 		const self = this
 
 		Event.$on('resource-loaded', function(data) {
-			if(data.content_type.hides_children || data.hides_children) {
+			if((data.content_type.hides_children || data.hides_children) && self.tabs.length == 3) {
 				self.tabs.unshift({ route: 'contents.children', label: 'hierarchy::contents.children', active: false})
 			} else if(self.tabs.length > 3) {
 				self.tabs.shift()

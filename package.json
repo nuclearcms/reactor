@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "chart.js": "^2.9.4",
-        "nuclear-hierarchy-ui": "^1.5.12",
+        "nuclear-hierarchy-ui": "^1.5.13",
         "umomega-auth": "^1.7.2",
         "umomega-foundation": "^1.19.9",
         "umomega-media": "^1.5.4",

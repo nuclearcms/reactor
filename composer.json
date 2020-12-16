@@ -2,7 +2,7 @@
 	"name": "nuclear/reactor",
 	"description": "Core Library for the Nuclear CMS",
 	"keywords": ["umomega", "nuclear", "laravel", "reactor", "php"],
-	"version": "1.0.14",
+	"version": "1.0.15",
 	"license": "MIT",
 	"authors": [
         {

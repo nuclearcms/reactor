@@ -23,8 +23,8 @@ class InstallHelper {
         if (file_exists($path))
         {
             file_put_contents($path, str_replace(
-                $key . '=' . env($key),
-                $key . '=' . $value,
+                [$key . '=' . env($key), $key . '="' . env($key) . '"'],
+                [$key . '=' . $value, $key . '="' . $value . '"'],
                 file_get_contents($path)
             ));
         }
@@ -69,7 +69,7 @@ class InstallHelper {
      */
     protected function generateHomeContent()
     {
-    	$contentType = ContentType::create(['name' => 'Home', 'is_visible' => true, 'hides_children' => false, 'color' => '{"hex":"#00249C"}', 'is_taggable' => false, 'allowed_children_types' => []]);
+    	$contentType = ContentType::create(['name' => 'Home', 'is_visible' => true, 'hides_children' => false, 'color' => ['hex' => '#00249C'], 'is_taggable' => false, 'allowed_children_types' => []]);
 
     	$content = Content::create(['title' => 'Home', 'content_type_id' => $contentType->id, 'status' => 50]);
     }

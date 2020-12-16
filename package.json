@@ -23,11 +23,11 @@
     },
     "dependencies": {
         "chart.js": "^2.9.4",
-        "nuclear-hierarchy-ui": "^1.5.10",
-        "umomega-auth": "^1.7.1",
-        "umomega-foundation": "^1.19.8",
+        "nuclear-hierarchy-ui": "^1.5.11",
+        "umomega-auth": "^1.7.2",
+        "umomega-foundation": "^1.19.9",
         "umomega-media": "^1.5.4",
-        "umomega-tags": "^1.4.2",
+        "umomega-tags": "^1.4.3",
         "vue-prism-editor": "^1.2.2"
     }
 }

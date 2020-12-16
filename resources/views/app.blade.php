@@ -19,7 +19,7 @@
 	<script src="{{ route('utilities.translations', $user->locale) }}" defer></script>
 	<script>
 		window.locale = '{{ $user->locale }}'
-		window.app_locale = '{{ config('reactor.locale') }}'
+		window.app_locale = '{{ config('app.locale') }}'
 		window.app_locales = {!! json_encode(config('app.locales')) !!}
 		window.token = '{{ $user->api_token }}'
 		window.nuclear_version = '{{ nuclear_version() }}'

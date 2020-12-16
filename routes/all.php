@@ -25,7 +25,11 @@ Route::group([
 // API Routes
 Route::group([
     'prefix' => 'api',
-    'middleware' => ['api', 'permission:superadmin|access_reactor']
+    'middleware' => [
+        'api',
+        'permission:superadmin|access_reactor',
+        Nuclear\Reactor\Http\Middleware\SetReactorLocale::class
+    ]
 ], function() {
 
     Route::name('api.')->group(function() {

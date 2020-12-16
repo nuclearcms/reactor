@@ -36,8 +36,9 @@ class InstallNuclear extends Command {
 
     	$this->info('Great! Now we need to setup the database, so you should have created it and entered the necessary information in the environment file.');
     	$this->setupDatabaseInformationAndMigrate($helper);
+        $this->info('Done!');
 
-    	$this->info('Finally, Nuclear will grant you super admin powers! Please enter your user information:');
+    	$this->info('Finally, Nuclear will grant you the super admin powers! Please enter your user information:');
     	$this->createSuperadmin($helper);
 
     	$helper->setEnvVariable('APP_STATUS', 'INSTALLED');
@@ -73,7 +74,8 @@ class InstallNuclear extends Command {
     	// App locale
     	$helper->setEnvVariable(
     		'APP_LOCALE',
-    		$this->anticipate('Please enter the site locale:', ['en', 'tr']));
+    		$locale = $this->anticipate('Please enter the site locale:', ['en', 'tr']));
+        config('app.locale', $locale);
 
     	// App locales
     	$helper->setEnvVariable(

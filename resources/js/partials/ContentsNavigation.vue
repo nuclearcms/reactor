@@ -13,7 +13,7 @@
 		</div>
 
 		<div class="contents-navigation__locales">
-			<a v-for="locale in $root.appLocales" href="#" :class="'contents-navigation__locale' + (locale == editingLocale ? ' contents-navigation__locale--active' : '' )" @click.prevent="changeEditingLocale(locale)" v-text="locale"></a>
+			<a v-if="$root.appLocales.length > 1" v-for="locale in $root.appLocales" href="#" :class="'contents-navigation__locale' + (locale == editingLocale ? ' contents-navigation__locale--active' : '' )" @click.prevent="changeEditingLocale(locale)" v-text="locale"></a>
 		</div>
 
 		<div class="contents-tree-outer">

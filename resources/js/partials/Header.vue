@@ -15,7 +15,7 @@ export default {
 	data() {
 		return {
 			pagetitle: '',
-			breadcrumbs: {}
+			breadcrumbs: []
 		}
 	},
 	created() {

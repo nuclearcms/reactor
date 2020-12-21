@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class SetLocale extends BaseSetLocale
 {
 
-	/**
+    /**
      * Handle an incoming request.
      *
      * @param \Illuminate\Http\Request $request
@@ -21,6 +21,7 @@ class SetLocale extends BaseSetLocale
      */
     public function handle($request, Closure $next)
     {
+        if(is_request_reactor()) return $next($request);
         // This package sets a custom route attribute for the locale.
         // If it is present, use this as the locale.
         $locale = $request->route()->getAction('localized-routes-locale')

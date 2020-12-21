@@ -23,9 +23,9 @@
     },
     "dependencies": {
         "chart.js": "^2.9.4",
-        "nuclear-hierarchy-ui": "^1.5.13",
+        "nuclear-hierarchy-ui": "^1.5.14",
         "umomega-auth": "^1.7.2",
-        "umomega-foundation": "^1.19.9",
+        "umomega-foundation": "^1.19.10",
         "umomega-media": "^1.5.4",
         "umomega-tags": "^1.4.3",
         "vue-prism-editor": "^1.2.2"

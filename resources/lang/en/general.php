@@ -34,7 +34,6 @@ return [
 	'maintenance_view_cache' => 'Compile all of the application\'s Blade templates',
 	'maintenance_view_clear' => 'Clear all compiled view files',
 	'maintenance_sitemap_generate' => 'Generate the sitemap',
-	'maintenance_telescope_clear' => 'Clear all entries from Telescope',
 
 	'section_maintenance' => 'Maintenance',
 	'section_maintenance_desc' => 'Common maintenance commands',

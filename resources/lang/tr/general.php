@@ -34,7 +34,6 @@ return [
 	'maintenance_view_cache' => 'Uygulamanın tüm Blade şablonlarını derleme',
 	'maintenance_view_clear' => 'Tüm derlenmiş görünüm dosyalarını temizleme',
 	'maintenance_sitemap_generate' => 'Site haritasını oluşturma',
-	'maintenance_telescope_clear' => 'Telescope\'taki tüm girişleri temizleme',
 
 	'section_maintenance' => 'Bakım',
 	'section_maintenance_desc' => 'Genel bakım komutları',

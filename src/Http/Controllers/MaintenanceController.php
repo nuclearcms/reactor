@@ -64,7 +64,7 @@ class MaintenanceController extends Controller
 	 */
 	public function runCommand($command)
 	{
-		if(!in_array($command, ['down', 'optimize', 'route_cache', 'config_cache', 'view_cache', 'package_discover', 'route_clear', 'cache_clear', 'config_clear', 'view_clear', 'optimize_clear', 'clear-compiled', 'activitylog_clean', 'permission_cache-reset', 'key_generate', 'sitemap_generate', 'telescope_clear'])) {
+		if(!in_array($command, ['down', 'optimize', 'route_cache', 'config_cache', 'view_cache', 'package_discover', 'route_clear', 'cache_clear', 'config_clear', 'view_clear', 'optimize_clear', 'clear-compiled', 'activitylog_clean', 'permission_cache-reset', 'key_generate', 'sitemap_generate'])) {
 			return [
 				'success' => false,
 				'message' => __('reactor::general.maintenance_command_not_found')
@@ -73,7 +73,7 @@ class MaintenanceController extends Controller
 
 		if($command == 'key_generate') {
 			\Artisan::call(str_replace('_', ':', $command));
-			\Artisan::call('config:cache');
+			\Artisan::call('key:generate', ['--force' => true]);
 		} elseif($command == 'activitylog_clean') {
 			\Artisan::call('activitylog:clean', ['--days' => 0]);
 		} else {

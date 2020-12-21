@@ -21,7 +21,8 @@ if (!function_exists('is_installed'))
      */
     function is_installed()
     {
-        return ((env('APP_STATUS', 'INSTALLED') === 'INSTALLED') && ! empty(env('DB_DATABASE')));
+        // Be reminded this might fail when config:cache is used
+        return (env('APP_STATUS', 'INSTALLED') === 'INSTALLED');
     }
 }
 

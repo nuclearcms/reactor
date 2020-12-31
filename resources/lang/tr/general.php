@@ -20,6 +20,7 @@ return [
 
 	'maintenance_clear-compiled' => 'Derlenmiş sınıf dosyasını kaldırma',
 	'maintenance_down' => 'Uygulamayı bakım / demo moduna geçirme',
+	'maintenance_reactor_optimize' => 'Tüm gerekli optimizasyon komutlarını çalıştırma',
 	'maintenance_optimize' => 'Uygulama önyükleme dosyalarını önbelleğe alın',
 	'maintenance_activitylog_clean' => 'Etkinlik günlüğünden eski kayıtları temizleme',
 	'maintenance_cache_clear' => 'Uygulama önbelleğini temizleme',

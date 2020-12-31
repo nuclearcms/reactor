@@ -20,6 +20,7 @@ return [
 
 	'maintenance_clear-compiled' => 'Remove the compiled class file',
 	'maintenance_down' => 'Put the application into maintenance / demo mode',
+	'maintenance_reactor_optimize' => 'Run all necessary optimization commands',
 	'maintenance_optimize' => 'Cache the framework bootstrap files',
 	'maintenance_activitylog_clean' => 'Clean up old records from the activity log',
 	'maintenance_cache_clear' => 'Flush the application cache',

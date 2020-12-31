@@ -39,6 +39,19 @@ if (!function_exists('is_request_reactor'))
     }
 }
 
+if (!function_exists('is_request_api'))
+{
+    /**
+     * Checks if the request is an api request
+     *
+     * @return bool
+     */
+    function is_request_api()
+    {
+        return (request()->segment(1) === 'api');
+    }
+}
+
 if (!function_exists('is_request_install'))
 {
     /**
@@ -49,5 +62,16 @@ if (!function_exists('is_request_install'))
     function is_request_install()
     {
         return (request()->segment(1) === 'install');
+    }
+}
+
+if (!function_exists('get_locale_keywords')) {
+    /**
+     * Returns the locale keywords to be loaded and cached
+     *
+     * @return array
+     */
+    function get_locale_keywords() {
+        return config('reactor.locale-keywords');
     }
 }

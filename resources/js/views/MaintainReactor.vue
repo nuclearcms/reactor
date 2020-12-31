@@ -22,7 +22,7 @@ export default {
 		titleLabel: 'reactor::general.maintain_reactor',
 		sections: [
 			{ title: 'maintenance', commands: ['down'] },
-			{ title: 'performance', commands: ['optimize', 'route_cache', 'config_cache', 'view_cache', 'package_discover'] },
+			{ title: 'performance', commands: ['reactor_optimize', 'optimize', 'route_cache', 'config_cache', 'view_cache', 'package_discover'] },
 			{ title: 'cleanup', commands: ['route_clear', 'cache_clear', 'config_clear', 'view_clear', 'optimize_clear', 'clear-compiled', 'activitylog_clean', 'permission_cache-reset']},
 			{ title: 'seo', commands: ['sitemap_generate']},
 			{ title: 'security', commands: ['key_generate']}

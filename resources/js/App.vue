@@ -82,6 +82,7 @@ export default {
 	watch: {
 		$route() {
 			this.closeNavigations()
+			window.scrollTo({ top: 0, behavior: 'smooth' })
 		}
 	},
 	methods: {

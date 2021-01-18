@@ -10,7 +10,7 @@ class ReactorServiceProvider extends ServiceProvider
     /**
      * Nuclear Version
      */
-    const VERSION = '4.1.0';
+    const VERSION = '4.1.1';
 
     /**
      * Register any application services.
@@ -45,6 +45,8 @@ class ReactorServiceProvider extends ServiceProvider
         
         if(!is_installed()) $commands[] = \Nuclear\Reactor\Console\InstallNuclear::class;
         $this->commands($commands);
+
+        if(substr(config('app.url'),0,5) === 'https') \URL::forceScheme('https');
 
         $this->publishes([__DIR__ . '/../../config/reactor.php' => config_path('reactor.php')], 'config');
 

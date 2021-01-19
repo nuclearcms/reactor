@@ -59,6 +59,12 @@ Route::group([
                 require 'api/contentfields.php';
                 require 'api/contents.php';
             });
+
+            Route::namespace('Umomega\Former\Http\Controllers')->group(function() {
+                require 'api/answers.php';
+                require 'api/forms.php';
+                require 'api/formfields.php';
+            });
         });
     });
 });

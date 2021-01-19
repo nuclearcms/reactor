@@ -24,9 +24,11 @@ import ProfileChronicle from './views/profile/ProfileChronicle'
 // Hierarchy
 import {ContentTypesIndex, ContentTypesCreate, ContentTypesEdit, ContentTypesFields, ContentFieldsCreate, ContentFieldsEdit} from 'nuclear-hierarchy-ui'
 
-// Temporary
 import {ContentsIndex, ContentsCreate, ContentsEdit, ContentsTranslate, ContentsSettings, ContentsTransform, ContentTypesContents, ContentsChildren} from 'nuclear-hierarchy-ui'
 import ContentsStatistics from './views/contents/ContentsStatistics'
+
+// Former
+import {FormsIndex, FormsCreate, FormsEdit, FormsFields, FormFieldsCreate, FormFieldsEdit, AnswersIndex, AnswersEdit} from 'umomega-former'
 
 // Maintenance
 import ManageEnvironment from './views/ManageEnvironment'
@@ -104,6 +106,20 @@ export default {
         // Content Fields
         {path: '/contenttypes/:id/fields/create', component: ContentFieldsCreate, name: 'contentfields.create'},
         {path: '/contenttypes/:parent/fields/:id', component: ContentFieldsEdit, name: 'contentfields.edit'},
+
+        // Former Forms
+        {path: '/forms', component: FormsIndex, name: 'forms.index'},
+        {path: '/forms/create', component: FormsCreate, name: 'forms.create'},
+        {path: '/forms/:id/edit', component: FormsEdit, name: 'forms.edit'},
+        {path: '/forms/:id/fields', component: FormsFields, name: 'forms.fields'},
+
+        // Former Fields
+        {path: '/forms/:id/fields/create', component: FormFieldsCreate, name: 'formfields.create'},
+        {path: '/forms/:parent/fields/:id', component: FormFieldsEdit, name: 'formfields.edit'},
+
+        // Former Answers
+        {path: '/answers', component: AnswersIndex, name: 'answers.index'},
+        {path: '/answers/:id/edit', component: AnswersEdit, name: 'answers.edit'},
 
         // Maintenance
         {path: '/environment', component: ManageEnvironment, name: 'environment'},

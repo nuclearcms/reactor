@@ -48,6 +48,19 @@
         </Dropdown>
 
 
+        <Dropdown v-if="$can('read_answers')">
+            <template v-slot:dropdown-button><i class="icon fas fa-file-alt"></i></template>
+            <template v-slot:dropdown-label>{{ trans.get('former::answers.manage') }}</template>
+            <router-link :to="{ name: 'answers.index' }" class="dropdown-item">
+                <i class="icon fas fa-file-signature has-color-grey-darker"></i> {{ trans.get('former::answers.manage') }}
+            </router-link>
+            <hr class="dropdown-divider">
+            <router-link :to="{ name: 'answers.index', query: { f: 30} }" class="dropdown-item">
+                <i class="icon fas fa-question has-color-grey-darker"></i> {{ trans.get('former::answers.pending_answers') }}
+            </router-link>
+        </Dropdown>
+
+
         <Dropdown v-if="$can('read_users')">
             <template v-slot:dropdown-button><i class="icon fas fa-users"></i></template>
             <template v-slot:dropdown-label>{{ trans.get('auth::users.multiple') }}</template>
@@ -68,13 +81,16 @@
         </Dropdown>
 
 
-        <Dropdown v-if="$can('maintain_reactor') || $can('read_contenttypes') || $can('rw_environment') || $can('rw_logs')">
+        <Dropdown v-if="$can('maintain_reactor') || $can('read_contenttypes') || $can('read_forms') || $can('rw_environment') || $can('rw_logs')">
             <template v-slot:dropdown-button><i class="icon fas fa-tools"></i></template>
             <template v-slot:dropdown-label>{{ trans.get('reactor::general.construction_maintenance') }}</template>
             <router-link v-if="$can('read_contenttypes')" :to="{ name: 'contenttypes.index' }" class="dropdown-item">
                 <i class="icon fas fa-shapes has-color-grey-darker"></i> {{ trans.get('hierarchy::contenttypes.manage') }}
             </router-link>
-            <hr v-if="$can('read_contenttypes') && ($can('maintain_reactor') || $can('rw_environment') || $can('rw_logs'))" class="dropdown-divider">
+            <router-link v-if="$can('read_forms')" :to="{ name: 'forms.index' }" class="dropdown-item">
+                <i class="icon fas fa-file-alt has-color-grey-darker"></i> {{ trans.get('former::forms.manage') }}
+            </router-link>
+            <hr v-if="($can('read_contenttypes') || $can('read_forms')) && ($can('maintain_reactor') || $can('rw_environment') || $can('rw_logs'))" class="dropdown-divider">
             <router-link v-if="$can('maintain_reactor')" :to="{ name: 'maintenance' }" class="dropdown-item">
                 <i class="icon fas fa-wrench has-color-grey-darker"></i> {{ trans.get('reactor::general.maintenance') }}
             </router-link>

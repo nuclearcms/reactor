@@ -49,14 +49,14 @@ class InstallHelper {
      */
     protected function generateRolesAndPermissions()
     {
-        foreach(['access_reactor', 'maintain_reactor', 'read_chronicle', 'read_contents', 'read_contenttypes', 'read_media', 'read_tags', 'read_users', 'rw_environment', 'rw_logs', 'rw_permissions', 'superadmin', 'write_contents', 'write_contenttypes', 'write_media', 'write_tags', 'write_users'] as $permission)
+        foreach(['access_reactor', 'maintain_reactor', 'read_chronicle', 'read_contents', 'read_contenttypes', 'read_media', 'read_tags', 'read_users', 'rw_environment', 'rw_logs', 'rw_permissions', 'superadmin', 'write_contents', 'write_contenttypes', 'write_media', 'write_tags', 'write_users', 'read_forms', 'write_forms', 'read_answers', 'write_answers'] as $permission)
         {
             Permission::create(['name' => $permission]);
         }
 
         foreach([
-            'Administrator' => ['access_reactor', 'maintain_reactor', 'read_chronicle', 'read_contents', 'read_contenttypes', 'read_media', 'read_tags', 'read_users', 'rw_environment', 'rw_logs', 'rw_permissions', 'write_contents', 'write_contenttypes', 'write_media', 'write_tags', 'write_users'],
-            'Editor' => ['access_reactor', 'read_chronicle', 'read_contents', 'read_media', 'read_tags', 'write_contents', 'write_media', 'write_tags']
+            'Administrator' => ['access_reactor', 'maintain_reactor', 'read_chronicle', 'read_contents', 'read_contenttypes', 'read_media', 'read_tags', 'read_users', 'rw_environment', 'rw_logs', 'rw_permissions', 'write_contents', 'write_contenttypes', 'write_media', 'write_tags', 'write_users', 'read_forms', 'write_forms', 'read_answers', 'write_answers'],
+            'Editor' => ['access_reactor', 'read_chronicle', 'read_contents', 'read_media', 'read_tags', 'write_contents', 'write_media', 'write_tags', 'read_answers', 'write_answers']
         ] as $role => $permissions) {
             $role = Role::create(['name' => $role]);
 

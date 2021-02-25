@@ -50,7 +50,7 @@
 
         <Dropdown v-if="$can('read_answers')">
             <template v-slot:dropdown-button><i class="icon fas fa-file-alt"></i></template>
-            <template v-slot:dropdown-label>{{ trans.get('former::answers.manage') }}</template>
+            <template v-slot:dropdown-label>{{ trans.get('former::answers.multiple') }}</template>
             <router-link :to="{ name: 'answers.index' }" class="dropdown-item">
                 <i class="icon fas fa-file-signature has-color-grey-darker"></i> {{ trans.get('former::answers.manage') }}
             </router-link>

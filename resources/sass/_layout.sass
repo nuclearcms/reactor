@@ -29,7 +29,7 @@ body
 
 	&__bar
 		display: flex
-	
+
 	&__body
 		display: flex
 		position: relative
@@ -43,15 +43,16 @@ body
 		flex-grow: 0
 		flex-shrink: 0
 		padding-right: 2.5rem
+		align-self: flex-end
+		position: sticky
+		bottom: 0.5rem
 		@media screen and (max-width: $widescreen)
 			flex-basis: 18.5rem
 		@media screen and (max-width: $desktop)
 			padding-right: 0
 			flex-basis: 0
-	
+
 	&__sidebar-inner
-		position: sticky
-		top: 1.25rem
 		width: 18rem
 		@media screen and (max-width: $widescreen)
 			width: 16rem
@@ -89,10 +90,12 @@ body
 
 	&__control
 		text-align: center
+		align-self: auto
+		position: relative
 
 		&--left
 			text-align: left !important
-	
+
 	@media screen and (max-width: $desktop)
 		&__control
 			flex-basis: 10rem

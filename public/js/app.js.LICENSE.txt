@@ -32,10 +32,10 @@
 
 /*! no static exports found */
 
-/*! vue-page-title v1.2.3
+/*! vue-page-title v1.2.4
  * Vue.js html/page title manager
  * https://github.com/vinicius73/vue-page-title
- * (c) 2018-2020 Vinicius Reis <luiz.vinicius73@gmail.com>
+ * (c) 2018-2021 Vinicius Reis <luiz.vinicius73@gmail.com>
  */
 
 /*!**************************!*\

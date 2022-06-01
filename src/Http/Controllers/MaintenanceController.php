@@ -64,6 +64,8 @@ class MaintenanceController extends Controller
 	 */
 	public function runCommand($command)
 	{
+		set_time_limit(0);
+
 		if(!in_array($command, ['down', 'reactor_optimize', 'optimize', 'route_cache', 'config_cache', 'view_cache', 'package_discover', 'route_clear', 'cache_clear', 'config_clear', 'view_clear', 'optimize_clear', 'clear-compiled', 'activitylog_clean', 'permission_cache-reset', 'key_generate', 'sitemap_generate'])) {
 			return [
 				'success' => false,

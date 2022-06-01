@@ -18,8 +18,15 @@
  */
 
 /*!
- * Vue.js v2.6.12
- * (c) 2014-2020 Evan You
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
  * Released under the MIT License.
  */
 
@@ -27,15 +34,17 @@
 
 /*! exports provided: default */
 
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
 /*! modernizr 3.6.0 (Custom Build) | MIT *
  * https://modernizr.com/download/?-touchevents-setclasses !*/
 
 /*! no static exports found */
 
-/*! vue-page-title v1.2.4
+/*! vue-page-title v1.2.10
  * Vue.js html/page title manager
  * https://github.com/vinicius73/vue-page-title
- * (c) 2018-2021 Vinicius Reis <luiz.vinicius73@gmail.com>
+ * (c) 2018-2022 Vinicius Reis <luiz.vinicius73@gmail.com>
  */
 
 /*!**************************!*\

@@ -1,4 +1,12 @@
 {
     "/public/js/app.js": "/public/js/app.js",
-    "/public/css/app.css": "/public/css/app.css"
+    "/public/css/app.css": "/public/css/app.css",
+    "/public/vendor/app/.DS_Store": "/public/vendor/app/.DS_Store",
+    "/public/vendor/app/css/app.css": "/public/vendor/app/css/app.css",
+    "/public/vendor/app/img/app-logo-color.svg": "/public/vendor/app/img/app-logo-color.svg",
+    "/public/vendor/app/img/app-logo-mono.svg": "/public/vendor/app/img/app-logo-mono.svg",
+    "/public/vendor/app/img/dialog-bg.jpg": "/public/vendor/app/img/dialog-bg.jpg",
+    "/public/vendor/app/img/umo-logo-mono.svg": "/public/vendor/app/img/umo-logo-mono.svg",
+    "/public/vendor/app/js/app.js": "/public/vendor/app/js/app.js",
+    "/public/vendor/app/js/app.js.LICENSE.txt": "/public/vendor/app/js/app.js.LICENSE.txt"
 }

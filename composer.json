@@ -8,7 +8,7 @@
         "reactor",
         "php"
     ],
-    "version": "1.2.7",
+    "version": "1.2.8",
     "license": "MIT",
     "authors": [
         {
@@ -29,7 +29,7 @@
         "umomega/tags": "^1.0",
         "codezero/laravel-localized-routes": "^2.4",
         "igaster/laravel-theme": "^2.0",
-        "spatie/laravel-sitemap": "^5.9",
+        "spatie/laravel-sitemap": "^6.0",
         "predis/predis": "^1.1"
     },
     "autoload": {

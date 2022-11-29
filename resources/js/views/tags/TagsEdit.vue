@@ -57,14 +57,19 @@ export default {
 			{to: { name: 'tags.index'}, text: this.$root.trans.get('tags::tags.multiple')}
 		],
 		guardedBy: 'read_tags',
-		translatableFields: ['name'],
-		form: new Form({name: '', type: ''}),
+		translatableFields: ['name', 'slug'],
+		form: new Form({name: '', slug: '', type: ''}),
 		schema: [
 			{
 				type: 'TextField',
 				name: 'name',
 				label: this.$root.trans.get('validation.attributes.name'),
 				options: {required: true}
+			},
+			{
+				type: 'TextField',
+				name: 'slug',
+				label: this.$root.trans.get('validation.attributes.slug')
 			}
 		],
 		schemaSecondary: [

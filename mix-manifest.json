@@ -1,7 +1,6 @@
 {
     "/public/js/app.js": "/public/js/app.js",
     "/public/css/app.css": "/public/css/app.css",
-    "/public/vendor/app/.DS_Store": "/public/vendor/app/.DS_Store",
     "/public/vendor/app/css/app.css": "/public/vendor/app/css/app.css",
     "/public/vendor/app/img/app-logo-color.svg": "/public/vendor/app/img/app-logo-color.svg",
     "/public/vendor/app/img/app-logo-mono.svg": "/public/vendor/app/img/app-logo-mono.svg",

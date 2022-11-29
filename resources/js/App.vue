@@ -56,7 +56,7 @@
     </div>
 
     <div class="app__body">
-      <aside class="app__sidebar" v-if="$can('read_contents')">
+      <aside class="app__sidebar app__sidebar--contents" v-if="$can('read_contents')">
         <div
           :class="
             contentsOpen

@@ -66,6 +66,20 @@ class TokenManager {
     }
 
     /**
+     * Gets the current or makes a new token
+     * 
+     * @param $string $key
+     * @param int $duration
+     * @return string
+     */
+    public function getOrMakeNewToken($key, $duration = 60)
+    {
+        if($token = $this->getToken($key)) return $token;
+
+        return $this->makeNewToken($key, $duration);
+    }
+
+    /**
      * Checks if the request has the token
      *
      * @param string $key

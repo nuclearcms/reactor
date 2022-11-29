@@ -15,7 +15,8 @@ import {PermissionsIndex, PermissionsCreate, PermissionsEdit, PermissionsUsers} 
 // Roles
 import {RolesIndex, RolesCreate, RolesEdit, RolesUsers} from 'umomega-auth'
 // Users
-import {UsersIndex, UsersCreate, UsersEdit, UsersPassword} from 'umomega-auth'
+import {UsersIndex, UsersCreate, UsersPassword} from 'umomega-auth'
+import UsersEdit from './views/users/UsersEdit'
 import UsersChronicle from './views/users/UsersChronicle'
 // Profile
 import {ProfileEdit, ProfilePassword} from 'umomega-auth'

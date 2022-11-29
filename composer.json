@@ -21,7 +21,7 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^9.0",
-        "nuclear/hierarchy": "^3.1",
+        "nuclear/hierarchy": "^3.4",
         "umomega/auth": "^1.2",
         "umomega/former": "^1.1",
         "umomega/foundation": "^1.1",

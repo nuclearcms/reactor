@@ -4,7 +4,7 @@ namespace Nuclear\Reactor\Support;
 
 use Umomega\Auth\Permission;
 use Umomega\Auth\Role;
-use Umomega\Auth\User;
+use Nuclear\Reactor\Auth\User;
 use Nuclear\Hierarchy\Content;
 use Nuclear\Hierarchy\ContentType;
 

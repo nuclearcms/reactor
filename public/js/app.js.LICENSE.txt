@@ -2,6 +2,11 @@
  * @license MIT */
 
 /*!
+       * Codex JavaScript Notification module
+       * https://github.com/codex-team/js-notifier
+       */
+
+/*!
  *  Lang.js for Laravel localization in JavaScript.
  *
  *  @version 1.1.12
@@ -18,6 +23,25 @@
  */
 
 /*!
+ * CodeX.Tooltips
+ * 
+ * @version 1.0.5
+ * 
+ * @licence MIT
+ * @author CodeX <https://codex.so>
+ * 
+ * 
+ */
+
+/*!
+ * Library for handling keyboard shortcuts
+ * @copyright CodeX (https://codex.so)
+ * @license MIT
+ * @author CodeX (https://codex.so)
+ * @version 1.2.0
+ */
+
+/*!
  * The buffer module from node.js, for the browser.
  *
  * @author   Feross Aboukhadijeh <http://feross.org>
@@ -29,8 +53,6 @@
  * (c) 2014-2022 Evan You
  * Released under the MIT License.
  */
-
-/*! For license information please see editor.js.LICENSE.txt */
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
@@ -44,8 +66,17 @@
  */
 
 /**
+       * Base Paragraph Block for the Editor.js.
+       * Represents a regular text block
+       *
+       * @author CodeX (team@codex.so)
+       * @copyright CodeX 2018
+       * @license The MIT License (MIT)
+       */
+
+/**
  * Base Paragraph Block for the Editor.js.
- * Represents simple paragraph
+ * Represents a regular text block
  *
  * @author CodeX (team@codex.so)
  * @copyright CodeX 2018
@@ -68,6 +99,14 @@
  * @copyright CodeX 2018
  * @license The MIT License (MIT)
  * @version 2.0.0
+ */
+
+/**
+ * Editor.js
+ *
+ * @license Apache-2.0
+ * @see Editor.js <https://editorjs.io>
+ * @author CodeX Team <https://codex.so>
  */
 
 /**

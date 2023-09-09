@@ -31,7 +31,7 @@ class SetLocale extends BaseSetLocale
         
         // This bit is added later on
         Carbon::setLocale($locale);
-        setlocale(LC_TIME, config('localized-routes.full_locales.' . $locale));
+        setlocale(LC_ALL, config('localized-routes.full_locales.' . $locale), $locale);
 
         return $next($request);
     }

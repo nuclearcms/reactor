@@ -24,10 +24,10 @@
     },
     "dependencies": {
         "chart.js": "^2.9.4",
-        "nuclear-hierarchy-ui": "^1.5.14",
+        "nuclear-hierarchy-ui": "^1.6.5",
         "umomega-auth": "^1.7.2",
         "umomega-former": "^1.0.0",
-        "umomega-foundation": "^1.20.0",
+        "umomega-foundation": "^1.21.8",
         "umomega-media": "^1.5.4",
         "umomega-tags": "^1.4.3",
         "vue-prism-editor": "^1.2.2"

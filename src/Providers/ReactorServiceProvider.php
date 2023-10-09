@@ -10,7 +10,7 @@ class ReactorServiceProvider extends ServiceProvider
     /**
      * Nuclear Version
      */
-    const VERSION = '4.7.2';
+    const VERSION = '4.7.3';
 
     /**
      * Register any application services.

@@ -18,5 +18,6 @@ mix.browserSync({
         'node_modules/umomega-foundation/js/classes/media.js',
         'node_modules/umomega-foundation/js/classes/form.js',
         'node_modules/umomega-foundation/js/components/fields/RelationField.vue',
+        'node_modules/umomega-foundation/js/components/FloatingLibrary.vue',
     ]
 })
